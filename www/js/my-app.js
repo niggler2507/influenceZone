@@ -16,8 +16,20 @@ var app = new Framework7({
     // Add default routes
     routes: [
       {
-        path: '/about/',
-        url: 'about.html',
+        path: '/',
+        url: 'index.html',
+      },
+      {
+        path: '/index/',
+        url: 'index.html',
+      },
+      {
+        path: '/registracion/',
+        url: 'registracion.html',
+      },
+      {
+        path: '/perfil/',
+        url: 'perfil.html',
       },
     ]
     // ... other parameters
@@ -37,8 +49,22 @@ $$(document).on('page:init', function (e) {
 })
 
 // Option 2. Using live 'page:init' event handlers for each page
-$$(document).on('page:init', '.page[data-name="about"]', function (e) {
+$$(document).on('page:init', '.page[data-name="index"]', function (e) {
     // Do something here when page with data-name="about" attribute loaded and initialized
-    console.log(e);
-    alert('Hello');
+    console.log("pantalla index");
+    
+})
+
+// Option 2. Using live 'page:init' event handlers for each page
+$$(document).on('page:init', '.page[data-name="registracion"]', function (e) {
+  // Do something here when page with data-name="about" attribute loaded and initialized
+  console.log("pantalla de registracion");
+  
+})
+
+// Option 2. Using live 'page:init' event handlers for each page
+$$(document).on('page:init', '.page[data-name="perfil"]', function (e) {
+  // Do something here when page with data-name="about" attribute loaded and initialized
+  console.log("pantalla del perfil de usuario");
+  
 })
