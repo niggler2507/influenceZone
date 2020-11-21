@@ -41,7 +41,7 @@ var app = new Framework7({
 
 var mainView = app.views.create('.view-main');
 
-var email, latitud, longitud, platform;
+var email, latitud, longitud, platform, pos;
 
 //////////////////////////////////////////////////////////////////////////////////////////
 //APP INICIALIZADA
@@ -51,7 +51,7 @@ $$(document).on('deviceready', function() {
     mostrar("Device is ready!");
 
     platform = new H.service.Platform({
-      'apikey': 'jacZ9NrxaGoiDrVdAS1WsNKV6EfnANi4HAbKqtUjEvo'
+      'apikey': 'VNoQVAe8GbbiSpXAgfN7dRf8iLfVkWYQwN2_o8wvThQ'
     });
     
 
@@ -79,6 +79,7 @@ $$(document).on('deviceready', function() {
   }
 
   navigator.geolocation.getCurrentPosition(onSuccess, onError);
+
 });
 
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -143,9 +144,58 @@ $$(document).on('page:init', '.page[data-name="mapa"]', function (e) {
     document.getElementById('mapContainer'),
     defaultLayers.vector.normal.map,
     {
-      zoom: 10,
-      center: { lat: 52.5, lng: 13.4 }
+      zoom: 14,
+      center: { lat: latitud, lng: longitud }
     });
+    coords = { lat: latitud, lng: longitud },
+    marker = new H.map.Marker(coords);
+
+    // Add the marker to the map and center the map at the location of the marker:
+    map.addObject(marker);
+    map.setCenter(coords);
+/*
+    // Define a variable holding SVG mark-up that defines an icon image:
+    var svgMarkup = '<svg width="24" height="24" ' +
+    'xmlns="http://www.w3.org/2000/svg">' +
+    '<rect stroke="white" fill="#1b468d" x="1" y="1" width="22" ' +
+    'height="22" /><text x="12" y="18" font-size="12pt" ' +
+    'font-family="Arial" font-weight="bold" text-anchor="middle" ' +
+    'fill="white">H</text></svg>';
+
+    // Create an icon, an object holding the latitude and longitude, and a marker:
+    var icon = new H.map.Icon(svgMarkup),
+    coords = {lat: 52.53075, lng: 13.3851},
+    marker = new H.map.Marker(coords, {icon: icon});
+
+    // Add the marker to the map and center the map at the location of the marker:
+    map.addObject(marker);
+    map.setCenter(coords);
+
+
+     // Get an instance of the geocoding service:
+  var service = platform.getSearchService();
+  
+  // Call the geocode method with the geocoding parameters,
+  // the callback and an error callback function (called if a
+  // communication error occurs):
+  service.geocode({
+    q: 'Balcarce 50, Buenos Aires, Argentina'
+  }, (result) => {
+    // Add a marker for each location found
+    result.items.forEach((item) => {
+      mostrar("item: " + JSON.stringify(item.position));
+      pos = item.position;
+      map.addObject(new H.map.Marker(item.position));
+      //item: {"lat":-34.60826,"lng":-58.37078}
+      latitud = item.position.lat;
+      longitud = item.position.lng;
+      map.setCenter(item.position);
+    });
+  }, alert);
+
+  //coords = {lat: latitud, longitud};
+  //map.setCenter(coords);
+*/
 })
 
 //////////////////////////////////////////////////////////////////////////////////////////
