@@ -85,8 +85,9 @@
                               </li>
                             </ul>
                           </form>
+                          <div id="loginMensaje"></div>
                           <div class="block block-strong row">
-                            <div class="col"><a class="button" href="/perfil/">Iniciar</a></div>
+                            <div class="col"><a class="button" id="btnLogin">Iniciar</a></div>
                           </div>
 
                         <!-- Link to another page -->
@@ -98,6 +99,28 @@
         </div>
     </div>
 
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-firestore.js"></script>
+
+    <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyCeBJSEiUO-sHCNkiirK7NTNudtQu0lK7w",
+        authDomain: "influencezone2020.firebaseapp.com",
+        databaseURL: "https://influencezone2020.firebaseio.com",
+        projectId: "influencezone2020",
+        storageBucket: "influencezone2020.appspot.com",
+        messagingSenderId: "794776554124",
+        appId: "1:794776554124:web:5d870b399d7ff60c2f09a9"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    </script>
 
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="lib/framework7/js/framework7.bundle.min.js"></script>
