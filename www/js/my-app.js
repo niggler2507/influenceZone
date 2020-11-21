@@ -41,7 +41,7 @@ var app = new Framework7({
 
 var mainView = app.views.create('.view-main');
 
-var email, latitud, longitud;
+var email, latitud, longitud, platform;
 
 //////////////////////////////////////////////////////////////////////////////////////////
 //APP INICIALIZADA
@@ -49,6 +49,11 @@ var email, latitud, longitud;
 // Handle Cordova Device Ready Event
 $$(document).on('deviceready', function() {
     mostrar("Device is ready!");
+
+    platform = new H.service.Platform({
+      'apikey': 'jacZ9NrxaGoiDrVdAS1WsNKV6EfnANi4HAbKqtUjEvo'
+    });
+    
 
     var onSuccess = function(position) {
       latitud = position.coords.latitude;
@@ -130,7 +135,17 @@ $$(document).on('page:init', '.page[data-name="perfil"]', function (e) {
 $$(document).on('page:init', '.page[data-name="mapa"]', function (e) {
   // Do something here when page with data-name="about" attribute loaded and initialized
   mostrar("pantalla del mapa");
-  
+  // Obtain the default map types from the platform object:
+  var defaultLayers = platform.createDefaultLayers();
+
+  // Instantiate (and display) a map object:
+  var map = new H.Map(
+    document.getElementById('mapContainer'),
+    defaultLayers.vector.normal.map,
+    {
+      zoom: 10,
+      center: { lat: 52.5, lng: 13.4 }
+    });
 })
 
 //////////////////////////////////////////////////////////////////////////////////////////
