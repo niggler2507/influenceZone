@@ -1,14 +1,39 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.framework7.myapp" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>My App</name>
+<widget id="io.influencezone.niggler2507" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Influence Zone</name>
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+        Esta app intenta unir a las personas que realmente tienen necesidades, con aquellas que se sienten movidas a ayudar.
+
+Cerca tuyo existe alguien que necesita de vos, de tu ayuda, de lo que vos podés dar, alguien que influencie sus vidas positivamente.
+
+Influence Zone, te muestra según tus rutas habituales, las zonas con más necesidades, y las organizaciones que necesitan de tu aporta, así podrás ver qué muy cerca tuyo existe la posibilidad de ayudar a los demás. 
+
+Quizás no eras consciente de cuan cerca tuyo está la necesidad del prójimo, quizás siempre quisiste hacer tú aporte pero no sabías realmente cuán cerca de ti estaba la necesidad de la gente. Aunque realmente, eso ya no importa, ya que hoy puedes cambiar esto para siempre y podrás descubrir que tu zona de influencia, puede afectar positivamente a los demás.
+
+Prueba Influence Zone y aporta tu granito de arena ayudando a las organizaciones que se dedican a suplir las necesidades de los más necesitados.
+
+Comienza a impactar a tu región, a tu barrio, a tu ciudad a las personas más necesitadas con Influence Zone.
+
+En la sección “Zone”, de esta App vas a poder ver en el mapa, todos los lugares que están cerca de tu ubicación y trabajando por los demás, como Comedores, Merenderos, Organizaciones sin fines de lucro, Hogares, Fundaciones, Refugios, Servicios Comunitarios, Huertas, Agrupaciones, Centros Vecinales, todos sitios que ayudan a la comunidad de tu región. Podrás visualizar cada uno de ellos presionando el botón de “Next Focus”.
+
+Al detectar la institución más cercana a ti, puedes presionar en el botón, “Influence”, con el podrás ponerte en contacto con estas organizaciones, por medio de todas las vías de comunicación que ellos ofrezcan, como su mail, teléfono, facebook, whatsapp, o web institucional.
+
+Al tener la posibilidad de contactarlos, podrás agregar tu donación como: alimentos, ropa, artículos de varios; o mejor aún, quizás también puedas donar un poco de tu tiempo para ser voluntario en alguna de todas las organizaciones que tienen presencia en la app.
+
+Con esto logramos que las organizaciones sean más visibles para la comunidad, y la comunidad se pueda involucrar más en la acción social que ejercen todos los días.
+
+También en el apartado “Public Donation”, podrás ofrecer cualquier tipo de donación, la cual podrá ser visible por 24hs, la misma podrá ser vista por todas las organizaciones, y la primera que tome tu donación se podrá poner en contacto contigo para coordinar contigo el retiro de la misma.
+
+No te olvides nunca que tu donación puede cambiar una vida. No pierdas tiempo, usa Influence Zone y cambia la vida de las personas que te rodean.
+
     </description>
-    <author email="dev@cordova.apache.org" href="http://cordova.io">
-        Apache Cordova Team
+    <author email="ezequiel.abarrera@gmail.com" href="https://github.com/niggler2507/influenceZone">
+        InfluenceZone Team
     </author>
     <content src="index.html" />
     <plugin name="cordova-plugin-whitelist" spec="1" />
+    <plugin name="cordova-plugin-camera" spec="5" />
+    <plugin name="cordova-plugin-geolocation" spec="4" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
