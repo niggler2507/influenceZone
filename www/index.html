@@ -15,6 +15,7 @@
     <!-- Required meta tags-->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+    <!--    Framework7    -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <!-- Color theme for statusbar -->
     <meta name="theme-color" content="#2196f3">
@@ -26,9 +27,13 @@
     <link rel="stylesheet" href="css/icons.css">
     <!-- Path to your custom app styles-->
     <link rel="stylesheet" href="css/app.css">
-
+    
+    <!--    API HERE MAPS     -->
     <script src="https://js.api.here.com/v3/3.1/mapsjs-core.js" type="text/javascript" charset="utf-8"></script>
-    <script src="https://js.api.here.com/v3/3.1/mapsjs-service.js"type="text/javascript" charset="utf-8"></script>
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-service.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-ui.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css" />
 </head>
 
 <body>
@@ -128,6 +133,38 @@
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="lib/framework7/js/framework7.bundle.min.js"></script>
     <script type="text/javascript" src="js/my-app.js"></script>
+
+
+<!--LOCAL STORAGE PRUEBA-->
+<!--
+    <script>
+      var persona = { 
+        "nombre": "pepe", 
+        "edad": 20,
+        "coords": {
+          lat: 10,
+          lng: -20
+        }
+      };
+    
+      var storage = window.localStorage;
+      //storage.setItem("persona", persona) -> guardara [object Object]
+    
+      //convertimos el JSON en un string
+      var personaAGuardar = JSON.stringify(persona);
+    
+      storage.setItem("persona", personaAGuardar);
+      var personaGuardada = storage.getItem("persona");
+    
+      //convertimos el string en un JSON
+      personaGuardada = JSON.parse(personaGuardada);
+    
+      console.log(personaGuardada.nombre);
+      console.log(personaGuardada.edad);
+      console.log(personaGuardada.coords.lat);
+    </script>
+-->
+
 </body>
 
 </html>

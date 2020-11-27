@@ -1,23 +1,15 @@
 <!-- We don't need a full layout in this file because this page will be parsed with Ajax.  -->
 <div class="page" data-name="mapa">
-    <div class="navbar">
-        <div class="navbar-inner sliding">
-        <div class="left">
-            <a href="#" class="link back">
-            <i class="icon icon-back"></i>
-            <span class="ios-only">Back</span>
-            </a>
-        </div>
-        <div class="title">Mapa</div>
-        </div>
-    </div>
     <div class="page-content">
-        <div class="block-title">mapa</div>
         <div class="block block-strong">
-            <div class="block block-strong row">
-                <div style="width: 100%; height: 80vh; border: 1px solid #000;" id="mapContainer"></div>
-                <div class="col"><a class="button" href="/perfil/">Ir al Perfil</a></div>
+            <div class="block">
+                <p class="row">
+                    <a href="/perfil/"><button class="col button button-raised button-fill button-round">al Perfil</button></a>
+                    <a href="/"></a><button class="col button button-raised button-fill button-round" id="btnInfluence">Influence</button></a>
+                    <a href="/"></a><button class="col button button-raised button-fill button-round" id="btnNextFocus">Next Focus</button></a>
+                </p>
             </div>
+            <div style="width: 100%; height: 80vh; margin: 0!important; padding: 0!important; border: 1px solid #000;" id="mapContainer"></div>
         </div>
     </div>
 </div>

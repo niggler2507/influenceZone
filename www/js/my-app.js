@@ -41,7 +41,7 @@ var app = new Framework7({
 
 var mainView = app.views.create('.view-main');
 
-var email, latitud, longitud, platform, pos;
+var email,password, latitud, longitud, platform, pos;
 
 //////////////////////////////////////////////////////////////////////////////////////////
 //APP INICIALIZADA
@@ -49,12 +49,18 @@ var email, latitud, longitud, platform, pos;
 // Handle Cordova Device Ready Event
 $$(document).on('deviceready', function() {
     mostrar("Device is ready!");
-
+    
+/////////////////////////////////////////////////
+//  HERE MAPAS
+//  Iniciamos Platform de HereMaps
+/////////////////////////////////////////////////
+    //Initialize the Platform object
     platform = new H.service.Platform({
       'apikey': 'VNoQVAe8GbbiSpXAgfN7dRf8iLfVkWYQwN2_o8wvThQ'
     });
-    
-
+/////////////////////////////////////////////////
+//Plugin Geolocation (acceso a los datos del GPS)
+/////////////////////////////////////////////////
     var onSuccess = function(position) {
       latitud = position.coords.latitude;
       longitud = position.coords.longitude;
@@ -69,17 +75,16 @@ $$(document).on('deviceready', function() {
             'Speed: '             + position.coords.speed             + '\n' +
             'Timestamp: '         + position.timestamp                + '\n');
       */
-  };
+    };
 
-  // onError Callback receives a PositionError object
-  //
-  function onError(error) {
-      alert('code: '    + error.code    + '\n' +
-            'message: ' + error.message + '\n');
-  }
+    // onError Callback receives a PositionError object
+    //
+    function onError(error) {
+        alert('code: '    + error.code    + '\n' +
+              'message: ' + error.message + '\n');
+    }
 
-  navigator.geolocation.getCurrentPosition(onSuccess, onError);
-
+    navigator.geolocation.getCurrentPosition(onSuccess, onError);
 });
 
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -103,7 +108,7 @@ $$(document).on('page:init', '.page[data-name="index"]', function (e) {
 })
 
 //////////////////////////////////////////////////////////////////////////////////////////
-//REGISTRACION DE USUARIOS
+//REGISTRACION DE USUARIOS Y ORGS
 //////////////////////////////////////////////////////////////////////////////////////////
 // Option 2. Using live 'page:init' event handlers for each page
 $$(document).on('page:init', '.page[data-name="registracion"]', function (e) {
@@ -136,9 +141,16 @@ $$(document).on('page:init', '.page[data-name="perfil"]', function (e) {
 $$(document).on('page:init', '.page[data-name="mapa"]', function (e) {
   // Do something here when page with data-name="about" attribute loaded and initialized
   mostrar("pantalla del mapa");
+
+/////////////////////////////////////////////////
+//  HERE MAPS
+/////////////////////////////////////////////////
   // Obtain the default map types from the platform object:
   var defaultLayers = platform.createDefaultLayers();
 
+  //  CREANDO EL OBJETO MAPA
+  
+  // marca UBICACION EN EL MAPA
   // Instantiate (and display) a map object:
   var map = new H.Map(
     document.getElementById('mapContainer'),
@@ -149,10 +161,43 @@ $$(document).on('page:init', '.page[data-name="mapa"]', function (e) {
     });
     coords = { lat: latitud, lng: longitud },
     marker = new H.map.Marker(coords);
-
     // Add the marker to the map and center the map at the location of the marker:
     map.addObject(marker);
     map.setCenter(coords);
+
+
+    // BURBUJA DE INFORMACION en la zona en donde esta el usuario
+    // Create an info bubble object at a specific geographic location:
+    var bubble = new H.ui.InfoBubble({ lat: latitud, lng: longitud }, {
+      content: '<b>Estas Aqui!</b>'
+    });
+
+
+    // Configuracion del LENGUAJE DEL MAPA
+    // Create the default UI:
+    var ui = H.ui.UI.createDefault(map, defaultLayers, 'es-ES');
+    // Add info bubble to the UI:
+    ui.addBubble(bubble);
+
+
+    // Se agrega funcionalidades: tactil/mouse (EVENTOS EN EL MAPA)
+    // Enable the event system on the map instance:
+    var mapEvents = new H.mapevents.MapEvents(map);
+    // Add event listener:
+    map.addEventListener('tap', function(evt) {
+        // Log 'tap' and 'mouse' events:
+        console.log(evt.type, evt.currentPointer.type); 
+    });
+    // Instantiate the default behavior, providing the mapEvents object:
+    var behavior = new H.mapevents.Behavior(mapEvents);
+
+
+    //Creacion de una CODIFICACION GEOGRAFICA que pinta un CIRCULO en la zona de influencia
+    // Instantiate a circle object (using the default style):
+    var circle = new H.map.Circle({lat: latitud, lng: longitud}, 8000);
+    // Add the circle to the map:
+    map.addObject(circle);
+    
 /*
     // Define a variable holding SVG mark-up that defines an icon image:
     var svgMarkup = '<svg width="24" height="24" ' +
@@ -247,6 +292,7 @@ function fnRegistro() {
   });
 }
 
+//Funcion de inicializacion y creacion de base de datos
 function guarDatoUsuario() {
   /*
   Coleccion: PERSONAS       <- colPersonas
@@ -258,8 +304,12 @@ function guarDatoUsuario() {
             latitud
             longitud
   */
+
+
+ //CONSTRUYENDO LA BASE DE DATOS EN FIRESTORE
+
   var db = firebase.firestore();
-  var colPersonas = db.collection('Personas');
+  var colUsuarios = db.collection('Usuarios');
 
   claveDeColleccion = email;
   nombre = $$('#regNombre').val();
@@ -267,12 +317,13 @@ function guarDatoUsuario() {
   datos = {
     nombre: nombre,
     apellido: apellido,
+    email: email,
     foto: 'ninguna',
     latitud: latitud,
     longitud: longitud
   }
 
-  colPersonas.doc(claveDeColleccion).set(datos)
+  colUsuarios.doc(claveDeColleccion).set(datos)
   .catch(function(e) {
   });
 
