@@ -1,66 +1,147 @@
 <!-- We don't need a full layout in this file because this page will be parsed with Ajax.  -->
 <div class="page" data-name="registracion">
-    <div class="navbar">
-        <div class="navbar-inner sliding">
-        <div class="left">
-            <a href="#" class="link back">
-            <i class="icon icon-back"></i>
-            <span class="ios-only">Back</span>
-            </a>
-        </div>
-        <div class="title">Registración de nuevos Usuarios</div>
-        </div>
-    </div>
-    <div class="page-content">
-        <div class="block-title">Inicio de Registro</div>
-        <div class="block block-strong">
-            <form class="list" id="my-form">
-                <ul>
-                    <li>
-                        <div class="item-content item-input">
-                            <div class="item-inner">
-                            <div class="item-title item-label">Nombre</div>
-                            <div class="item-input-wrap">
-                                <input type="text" id="regNombre" name="regNombre" placeholder="Ingresa tu Nombre">
+    <!-- Primera Card para el registro de USUARIOS -->
+    <div class="card card-expandable">
+        <div class="card-content">
+            <div class="bg-color-primary" style="height: 300px">
+                <div class="card-header text-color-white display-block">
+                    Registro <strong>Usuario</strong>
+                    <br>
+                    <small style="opacity: 0.7">para <em>hacer</em> Donaciones</small>
+                </div>
+                <a href="#" class="link card-close card-opened-fade-in color-black"
+                    style="position: absolute; right: 15px; top: 15px">
+                    <i class="icon f7-icons">xmark_circle_fill</i>
+                </a>
+            </div>
+            <div class="card-content-padding">
+                <br><br>
+                <form class="list" id="my-form">
+                    <ul>
+                        <li>
+                            <div class="item-content item-input">
+                                <div class="item-inner">
+                                    <div class="item-title item-label">Nombre</div>
+                                    <div class="item-input-wrap">
+                                        <input type="text" id="regNombre" name="regNombre"
+                                            placeholder="Ingresa tu Nombre">
+                                    </div>
+                                </div>
                             </div>
+                        </li>
+                        <li>
+                            <div class="item-content item-input">
+                                <div class="item-inner">
+                                    <div class="item-title item-label">Apellido</div>
+                                    <div class="item-input-wrap">
+                                        <input type="text" id="regApellido" name="regApellido"
+                                            placeholder="Ingresa tu Apellido">
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="item-content item-input">
-                            <div class="item-inner">
-                            <div class="item-title item-label">Apellido</div>
-                            <div class="item-input-wrap">
-                                <input type="text" id="regApellido" name="regApellido" placeholder="Ingresa tu Apellido">
+                        </li>
+                        <li>
+                            <div class="item-content item-input">
+                                <div class="item-inner">
+                                    <div class="item-title item-label">E-mail</div>
+                                    <div class="item-input-wrap">
+                                        <input type="email" id="regEmail" name="loginEmail"
+                                            placeholder="Ingresa tu E-mail">
+                                    </div>
+                                </div>
                             </div>
+                        </li>
+                        <li>
+                            <div class="item-content item-input">
+                                <div class="item-inner">
+                                    <div class="item-title item-label">Clave</div>
+                                    <div class="item-input-wrap">
+                                        <input type="password" id="regPass" name="loginPass"
+                                            placeholder="Ingresa tu Clave">
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </li>
-                    <li>
-                    <div class="item-content item-input">
-                        <div class="item-inner">
-                        <div class="item-title item-label">E-mail</div>
-                        <div class="item-input-wrap">
-                            <input type="email" id="regEmail" name="loginEmail" placeholder="Ingresa tu E-mail">
-                        </div>
-                        </div>
-                    </div>
-                    </li>
-                    <li>
-                    <div class="item-content item-input">
-                        <div class="item-inner">
-                        <div class="item-title item-label">Clave</div>
-                        <div class="item-input-wrap">
-                            <input type="password" id="regPass" name="loginPass" placeholder="Ingresa tu Clave">
-                        </div>
-                        </div>
-                    </div>
-                    </li>
-                </ul>
-            </form>
-            <div class="block block-strong row">
-                <div class="col"><a class="button" id="btnFinReg">Finalizar</a></div>
+                        </li>
+                    </ul>
+                </form>
+                <div class="block block-strong row">
+                    <div class="col"><a class="button" id="btnFinReg">Finalizar</a></div>
+                </div>
             </div>
         </div>
+    </div>
+
+    <!-- Segunda Card para el registro de ORG´s -->
+    <div class="card card-expandable">
+        <div class="card-content">
+            <div class="bg-color-white" style="height: 300px">
+                <div class="card-header text-color-primary display-block">
+                    Registro <strong>ORG</strong>
+                    <br>
+                    <small style="opacity: 0.7">para <em>recibir</em> Donaciones</small>
+                </div>
+                <a href="#" class="link card-close card-opened-fade-in color-black"
+                    style="position: absolute; right: 15px; top: 15px">
+                    <i class="icon f7-icons">xmark_circle_fill</i>
+                </a>
+            </div>
+            <div class="card-content-padding">
+                <br><br>
+                <form class="list" id="my-form">
+                    <ul>
+                        <li>
+                            <div class="item-content item-input">
+                                <div class="item-inner">
+                                    <div class="item-title item-label">Nombre</div>
+                                    <div class="item-input-wrap">
+                                        <input type="text" id="regNombre" name="regNombre"
+                                            placeholder="Ingresa tu Nombre">
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content item-input">
+                                <div class="item-inner">
+                                    <div class="item-title item-label">Apellido</div>
+                                    <div class="item-input-wrap">
+                                        <input type="text" id="regApellido" name="regApellido"
+                                            placeholder="Ingresa tu Apellido">
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content item-input">
+                                <div class="item-inner">
+                                    <div class="item-title item-label">E-mail</div>
+                                    <div class="item-input-wrap">
+                                        <input type="email" id="regEmail" name="loginEmail"
+                                            placeholder="Ingresa tu E-mail">
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content item-input">
+                                <div class="item-inner">
+                                    <div class="item-title item-label">Clave</div>
+                                    <div class="item-input-wrap">
+                                        <input type="password" id="regPass" name="loginPass"
+                                            placeholder="Ingresa tu Clave">
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </form>
+                <div class="block block-strong row">
+                    <div class="col"><a class="button" id="btnFinReg">Finalizar</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="block-footer">
+        <p><a class="link login-screen-close" href="/" data-view=".page-content">Volver a la página principal</a></p>
     </div>
 </div>

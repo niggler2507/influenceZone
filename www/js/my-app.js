@@ -28,6 +28,10 @@ var app = new Framework7({
         url: 'registracion.html',
       },
       {
+        path: '/reg-screen/',
+        url: 'registracion.html',
+      },
+      {
         path: '/perfil/',
         url: 'perfil.html',
       },
@@ -36,7 +40,6 @@ var app = new Framework7({
         url: 'mapa.html',
       },
     ]
-    // ... other parameters
   });
 
 var mainView = app.views.create('.view-main');
@@ -49,7 +52,7 @@ var email,password, latitud, longitud, platform, pos;
 // Handle Cordova Device Ready Event
 $$(document).on('deviceready', function() {
     mostrar("Device is ready!");
-    
+
 /////////////////////////////////////////////////
 //  HERE MAPAS
 //  Iniciamos Platform de HereMaps
@@ -197,7 +200,7 @@ $$(document).on('page:init', '.page[data-name="mapa"]', function (e) {
     var circle = new H.map.Circle({lat: latitud, lng: longitud}, 8000);
     // Add the circle to the map:
     map.addObject(circle);
-    
+
 /*
     // Define a variable holding SVG mark-up that defines an icon image:
     var svgMarkup = '<svg width="24" height="24" ' +
@@ -269,7 +272,6 @@ function fnLogin() {
     var errorCode = error.code;
     var errorMessage = error.message;
     $$('#loginMensaje').html(errorMessage);
-    // ...
   });
 }
 

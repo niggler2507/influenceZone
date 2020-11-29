@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <!--
         Customize this policy to fit your own app's needs. For more guidance, see:
@@ -14,7 +15,8 @@
 
     <!-- Required meta tags-->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
     <!--    Framework7    -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <!-- Color theme for statusbar -->
@@ -27,7 +29,7 @@
     <link rel="stylesheet" href="css/icons.css">
     <!-- Path to your custom app styles-->
     <link rel="stylesheet" href="css/app.css">
-    
+
     <!--    API HERE MAPS     -->
     <script src="https://js.api.here.com/v3/3.1/mapsjs-core.js" type="text/javascript" charset="utf-8"></script>
     <script src="https://js.api.here.com/v3/3.1/mapsjs-service.js" type="text/javascript" charset="utf-8"></script>
@@ -40,67 +42,96 @@
     <div id="app">
         <!-- Statusbar overlay -->
         <div class="statusbar"></div>
-    
+
         <!-- Your main view, should have "view-main" class -->
         <div class="view view-main">
+
             <!-- Initial Page, "data-name" contains page name -->
             <div data-name="index" class="page">
-    
-                <!-- Top Navbar -->
-                <div class="navbar">
-                    <div class="navbar-bg"></div>
-                    <div class="navbar-inner">
-                        <div class="left"><i class="icon icon-back"></i></div>
-                        <div class="title">InfluenceZone</div>
-                        <div class="right"><i class="icon icon-forward"></i></div>
-                    </div>
-                </div>
-        
-                <!-- Toolbar -->
-                <div class="toolbar toolbar-bottom">
-                    <div class="toolbar-inner">
-                    <!-- Toolbar links -->
-                    <a href="#" class="link">Link 1</a>
-                    <a href="#" class="link">Link 2</a>
-                    </div>
-                </div>
-        
+
                 <!-- Scrollable page content -->
                 <div class="page-content">
                     <div class="block">
-                        <!--Formulario de Login-->
-                        <form class="list" id="my-form">
-                            <ul>
-                              <li>
-                                <div class="item-content item-input">
-                                  <div class="item-inner">
-                                    <div class="item-title item-label">E-mail</div>
-                                    <div class="item-input-wrap">
-                                      <input type="email" id="loginEmail" name="loginEmail" placeholder="Inrgesa tu E-mail">
-                                    </div>
-                                  </div>
-                                </div>
-                              </li>
-                              <li>
-                                <div class="item-content item-input">
-                                  <div class="item-inner">
-                                    <div class="item-title item-label">Clave</div>
-                                    <div class="item-input-wrap">
-                                      <input type="password" id="loginPass" name="loginPass" placeholder="Ingresa tu Clave">
-                                    </div>
-                                  </div>
-                                </div>
-                              </li>
-                            </ul>
-                          </form>
-                          <div id="loginMensaje"></div>
-                          <div class="block block-strong row">
-                            <div class="col"><a class="button" id="btnLogin">Iniciar</a></div>
-                          </div>
 
-                        <!-- Link to another page -->
-                        <a href="/registracion/" data-view=".page-content">Si no tenes una cuenta, Registrate aqui</a>
+                        <!-- Logo de App -->
+                        <div class="row">
+                            <div class="col-100 medium-60">
+                                <img data-src="img/logo03.png" class="lazy">
+                                <img data-src="img/logo02.png" class="lazy">
+                            </div>
+                        </div>
 
+                        <!-- btn de registro e inicio de sesión -->
+                        <div class="block">
+                            <p class="row">
+                                <a href="/reg-screen/" class="col button button-raised button-round">Registrarse</a>
+                                <a href="#" class="col button button-raised button-fill button-round login-screen-open"
+                                    data-login-screen=".login-screen">Iniciar Sesión</a>
+                            </p>
+                        </div>
+
+                        <!-- pequeño msj de inicio y msj de error -->
+                        <div class="block">
+                            <div id="loginMensaje"></div>
+                            <p class="row">
+                                <em>Cerca tuyo existe alguien que necesita de vos, de tu ayuda, de lo que vos podés dar,
+                                    <strong>alguien que influencie sus vidas positivamente.</strong></em>
+                            </p>
+                        </div>
+
+                        <!-- pop / inicio de sesión -->
+                        <div class="login-screen">
+                            <div class="view">
+                                <div class="page">
+                                    <div class="page-content login-screen-content">
+                                        <div class="login-screen-title">
+                                            <img src="img/logo01.png">
+                                        </div>
+                                        <form>
+                                            <div class="list">
+                                                <ul>
+                                                    <li class="item-content item-input">
+                                                        <div class="item-inner">
+                                                            <div class="item-title item-label">Email</div>
+                                                            <div class="item-input-wrap">
+                                                                <input type="email" id="loginEmail" name="loginEmail"
+                                                                    placeholder="Inrgesa tu E-mail">
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="item-content item-input">
+                                                        <div class="item-inner">
+                                                            <div class="item-title item-label">Contraseña</div>
+                                                            <div class="item-input-wrap">
+                                                                <input type="password" id="loginPass" name="loginPass"
+                                                                    placeholder="Ingresa tu Contraseña">
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="list">
+                                                <ul>
+                                                    <p>
+                                                        <li><a class="list-button login-screen-close"
+                                                                id="btnLogin">INICIAR SESIÓN</a></li>
+                                                    </p>
+                                                </ul>
+                                                <!-- msj de error, registro y volver atras -->
+                                                <div class="block-footer">
+                                                    <div id="loginMensaje"></div>
+                                                    <a href="/registracion/" data-view=".page-content"
+                                                        class="link login-screen-close"><em>Si aun no tenes una cuenta,
+                                                            porfavor <strong>Registrate aqui</strong></em></a>
+                                                    <p><a class="link login-screen-close" href="#">Volver a la página
+                                                            principal</a></p>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -116,18 +147,18 @@
     <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-firestore.js"></script>
 
     <script>
-    // Your web app's Firebase configuration
-    var firebaseConfig = {
-        apiKey: "AIzaSyCeBJSEiUO-sHCNkiirK7NTNudtQu0lK7w",
-        authDomain: "influencezone2020.firebaseapp.com",
-        databaseURL: "https://influencezone2020.firebaseio.com",
-        projectId: "influencezone2020",
-        storageBucket: "influencezone2020.appspot.com",
-        messagingSenderId: "794776554124",
-        appId: "1:794776554124:web:5d870b399d7ff60c2f09a9"
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyCeBJSEiUO-sHCNkiirK7NTNudtQu0lK7w",
+            authDomain: "influencezone2020.firebaseapp.com",
+            databaseURL: "https://influencezone2020.firebaseio.com",
+            projectId: "influencezone2020",
+            storageBucket: "influencezone2020.appspot.com",
+            messagingSenderId: "794776554124",
+            appId: "1:794776554124:web:5d870b399d7ff60c2f09a9"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
     </script>
 
     <script type="text/javascript" src="cordova.js"></script>
@@ -135,33 +166,33 @@
     <script type="text/javascript" src="js/my-app.js"></script>
 
 
-<!--LOCAL STORAGE PRUEBA-->
-<!--
+    <!--LOCAL STORAGE PRUEBA-->
+    <!--
     <script>
-      var persona = { 
-        "nombre": "pepe", 
-        "edad": 20,
-        "coords": {
-          lat: 10,
-          lng: -20
-        }
-      };
+        var persona = { 
+            "nombre": "pepe", 
+            "edad": 20,
+            "coords": {
+                lat: 10,
+                lng: -20
+            }
+        };
     
-      var storage = window.localStorage;
-      //storage.setItem("persona", persona) -> guardara [object Object]
+        var storage = window.localStorage;
+        //storage.setItem("persona", persona) -> guardara [object Object]
     
-      //convertimos el JSON en un string
-      var personaAGuardar = JSON.stringify(persona);
+        //convertimos el JSON en un string
+        var personaAGuardar = JSON.stringify(persona);
     
-      storage.setItem("persona", personaAGuardar);
-      var personaGuardada = storage.getItem("persona");
+        storage.setItem("persona", personaAGuardar);
+        var personaGuardada = storage.getItem("persona");
     
-      //convertimos el string en un JSON
-      personaGuardada = JSON.parse(personaGuardada);
+        //convertimos el string en un JSON
+        personaGuardada = JSON.parse(personaGuardada);
     
-      console.log(personaGuardada.nombre);
-      console.log(personaGuardada.edad);
-      console.log(personaGuardada.coords.lat);
+        console.log(personaGuardada.nombre);
+        console.log(personaGuardada.edad);
+        console.log(personaGuardada.coords.lat);
     </script>
 -->
 
