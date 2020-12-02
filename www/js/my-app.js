@@ -40,8 +40,8 @@ var app = new Framework7({
         url: 'mapa.html',
       }, 
       {
-        path: '/infoapp/',
-        url: 'infoapp.html',
+        path: '/info/',
+        url: 'info.html',
       }
     ]
   });
@@ -254,7 +254,7 @@ $$(document).on('page:init', '.page[data-name="mapa"]', function (e) {
 //////////////////////////////////////////////////////////////////////////////////////////
 //INFO DE LA APP
 //////////////////////////////////////////////////////////////////////////////////////////
-$$(document).on('page:init', '.page[data-name="infoapp"]', function (e) {
+$$(document).on('page:init', '.page[data-name="info"]', function (e) {
     mostrar("pantalla de info de la app");
   
 });
