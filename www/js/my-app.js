@@ -38,13 +38,17 @@ var app = new Framework7({
       {
         path: '/mapa/',
         url: 'mapa.html',
-      },
+      }, 
+      {
+        path: '/infoapp/',
+        url: 'infoapp.html',
+      }
     ]
   });
 
 var mainView = app.views.create('.view-main');
 
-var email,password, latitud, longitud, platform, pos;
+var email,password, latitud, longitud, platform, pos, icon;
 
 //////////////////////////////////////////////////////////////////////////////////////////
 //APP INICIALIZADA
@@ -65,19 +69,19 @@ $$(document).on('deviceready', function() {
 //Plugin Geolocation (acceso a los datos del GPS)
 /////////////////////////////////////////////////
     var onSuccess = function(position) {
-      latitud = position.coords.latitude;
-      longitud = position.coords.longitude;
-      
-      /*
-      alert('Latitude: '          + position.coords.latitude          + '\n' +
-            'Longitude: '         + position.coords.longitude         + '\n' +
-            'Altitude: '          + position.coords.altitude          + '\n' +
-            'Accuracy: '          + position.coords.accuracy          + '\n' +
-            'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '\n' +
-            'Heading: '           + position.coords.heading           + '\n' +
-            'Speed: '             + position.coords.speed             + '\n' +
-            'Timestamp: '         + position.timestamp                + '\n');
-      */
+        latitud = position.coords.latitude;
+        longitud = position.coords.longitude;
+        
+        /*
+        alert('Latitude: '          + position.coords.latitude          + '\n' +
+              'Longitude: '         + position.coords.longitude         + '\n' +
+              'Altitude: '          + position.coords.altitude          + '\n' +
+              'Accuracy: '          + position.coords.accuracy          + '\n' +
+              'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '\n' +
+              'Heading: '           + position.coords.heading           + '\n' +
+              'Speed: '             + position.coords.speed             + '\n' +
+              'Timestamp: '         + position.timestamp                + '\n');
+        */
     };
 
     // onError Callback receives a PositionError object
@@ -97,7 +101,14 @@ $$(document).on('deviceready', function() {
 $$(document).on('page:init', function (e) {
     // Do something here when page loaded and initialized
     mostrar(e);
-})
+    // Preloader
+    $$('.open-preloader').on('click', function () {
+      app.dialog.preloader();
+      setTimeout(function () {
+        app.dialog.close();
+      }, 4000);
+    });
+});
 
 //////////////////////////////////////////////////////////////////////////////////////////
 //INDEX
@@ -106,74 +117,86 @@ $$(document).on('page:init', function (e) {
 $$(document).on('page:init', '.page[data-name="index"]', function (e) {
     // Do something here when page with data-name="about" attribute loaded and initialized
     mostrar("pantalla index");
-    
+    var mySwiper = new Swiper('.swiper-container', {
+      autoplay: {
+        delay: 5000,
+      },
+    });
     $$('#btnLogin').on('click', fnLogin);
-})
+});
 
 //////////////////////////////////////////////////////////////////////////////////////////
 //REGISTRACION DE USUARIOS Y ORGS
 //////////////////////////////////////////////////////////////////////////////////////////
-// Option 2. Using live 'page:init' event handlers for each page
 $$(document).on('page:init', '.page[data-name="registracion"]', function (e) {
-  // Do something here when page with data-name="about" attribute loaded and initialized
-  mostrar("pantalla de registracion");
-  $$('#btnFinReg').on('click', fnRegistro);
-  $$('#btnFinReg').on('click', guarDatoUsuario);
-})
+    // Do something here when page with data-name="about" attribute loaded and initialized
+    mostrar("pantalla de registracion");
+    $$('#btnFinReg').on('click', fnRegistro);
+    $$('#btnFinReg').on('click', guarDatoUsuario);
+});
 
 //////////////////////////////////////////////////////////////////////////////////////////
 //PERFIL DEL USUARIO
 //////////////////////////////////////////////////////////////////////////////////////////
-// Option 2. Using live 'page:init' event handlers for each page
 $$(document).on('page:init', '.page[data-name="perfil"]', function (e) {
-  // Do something here when page with data-name="about" attribute loaded and initialized
-  mostrar("pantalla del perfil de usuario");
-  /*
-  perFoto
-  btnGal
-  btnCam
-  */
-  $$('#btnGal').on('click', fnGaleria);
-  $$('#btnGam').on('click', fnGamara);
-})
+    mostrar("pantalla del perfil de usuario");
+    /*
+    perFoto
+    btnGal
+    btnCam
+    */
+    $$('#btnGal').on('click', fnGaleria);
+    $$('#btnGam').on('click', fnGamara);
+});
 
 //////////////////////////////////////////////////////////////////////////////////////////
 //PANTALLA DEL MAPA
 //////////////////////////////////////////////////////////////////////////////////////////
 // Option 2. Using live 'page:init' event handlers for each page
 $$(document).on('page:init', '.page[data-name="mapa"]', function (e) {
-  // Do something here when page with data-name="about" attribute loaded and initialized
-  mostrar("pantalla del mapa");
+    // Do something here when page with data-name="about" attribute loaded and initialized
+    mostrar("pantalla del mapa");
 
 /////////////////////////////////////////////////
 //  HERE MAPS
 /////////////////////////////////////////////////
-  // Obtain the default map types from the platform object:
-  var defaultLayers = platform.createDefaultLayers();
+    // Obtain the default map types from the platform object:
+    var defaultLayers = platform.createDefaultLayers();
 
-  //  CREANDO EL OBJETO MAPA
-  
-  // marca UBICACION EN EL MAPA
-  // Instantiate (and display) a map object:
-  var map = new H.Map(
+    //  CREANDO EL OBJETO MAPA
+    // marca UBICACION EN EL MAPA
+    // Instantiate (and display) a map object:
+    var map = new H.Map(
     document.getElementById('mapContainer'),
     defaultLayers.vector.normal.map,
     {
-      zoom: 14,
+      zoom: 12,
       center: { lat: latitud, lng: longitud }
     });
     coords = { lat: latitud, lng: longitud },
     marker = new H.map.Marker(coords);
+
     // Add the marker to the map and center the map at the location of the marker:
     map.addObject(marker);
     map.setCenter(coords);
 
 
+
     // BURBUJA DE INFORMACION en la zona en donde esta el usuario
     // Create an info bubble object at a specific geographic location:
     var bubble = new H.ui.InfoBubble({ lat: latitud, lng: longitud }, {
-      content: '<b>Estas Aqui!</b>'
+      content: '<b>Estas Aqui! Y esta es tu zona de influencia</b>'
     });
+
+
+    // Create a marker icon from an image URL:
+    icon = new H.map.Icon('img/logo03.png');
+    // Create a marker using the previously instantiated icon:
+    var marker = new H.map.Marker({ lat: latitud, lng: longitud }, { icon: icon });
+    // Add the marker to the map:
+    map.addObject(marker);
+
+
 
 
     // Configuracion del LENGUAJE DEL MAPA
@@ -202,49 +225,42 @@ $$(document).on('page:init', '.page[data-name="mapa"]', function (e) {
     map.addObject(circle);
 
 /*
-    // Define a variable holding SVG mark-up that defines an icon image:
-    var svgMarkup = '<svg width="24" height="24" ' +
-    'xmlns="http://www.w3.org/2000/svg">' +
-    '<rect stroke="white" fill="#1b468d" x="1" y="1" width="22" ' +
-    'height="22" /><text x="12" y="18" font-size="12pt" ' +
-    'font-family="Arial" font-weight="bold" text-anchor="middle" ' +
-    'fill="white">H</text></svg>';
-
-    // Create an icon, an object holding the latitude and longitude, and a marker:
-    var icon = new H.map.Icon(svgMarkup),
-    coords = {lat: 52.53075, lng: 13.3851},
-    marker = new H.map.Marker(coords, {icon: icon});
-
-    // Add the marker to the map and center the map at the location of the marker:
-    map.addObject(marker);
-    map.setCenter(coords);
-
-
-     // Get an instance of the geocoding service:
-  var service = platform.getSearchService();
+    // Get an instance of the geocoding service:
+    var service = platform.getSearchService();
   
-  // Call the geocode method with the geocoding parameters,
-  // the callback and an error callback function (called if a
-  // communication error occurs):
-  service.geocode({
-    q: 'Balcarce 50, Buenos Aires, Argentina'
-  }, (result) => {
-    // Add a marker for each location found
-    result.items.forEach((item) => {
-      mostrar("item: " + JSON.stringify(item.position));
-      pos = item.position;
-      map.addObject(new H.map.Marker(item.position));
-      //item: {"lat":-34.60826,"lng":-58.37078}
-      latitud = item.position.lat;
-      longitud = item.position.lng;
-      map.setCenter(item.position);
-    });
+    // Call the geocode method with the geocoding parameters,
+    // the callback and an error callback function (called if a
+    // communication error occurs):
+    service.geocode({
+      q: 'Balcarce 50, Buenos Aires, Argentina'
+    }, (result) => {
+      // Add a marker for each location found
+      result.items.forEach((item) => {
+        mostrar("item: " + JSON.stringify(item.position));
+        pos = item.position;
+        map.addObject(new H.map.Marker(item.position));
+        //item: {"lat":-34.60826,"lng":-58.37078}
+        latitud = item.position.lat;
+        longitud = item.position.lng;
+        map.setCenter(item.position);
+      });
   }, alert);
 
-  //coords = {lat: latitud, longitud};
-  //map.setCenter(coords);
+    //coords = {lat: latitud, longitud};
+    //map.setCenter(coords);
 */
-})
+});
+
+//////////////////////////////////////////////////////////////////////////////////////////
+//INFO DE LA APP
+//////////////////////////////////////////////////////////////////////////////////////////
+$$(document).on('page:init', '.page[data-name="infoapp"]', function (e) {
+    mostrar("pantalla de info de la app");
+  
+});
+
+
+
 
 //////////////////////////////////////////////////////////////////////////////////////////
 //MIS FUNCIONES
@@ -308,7 +324,7 @@ function guarDatoUsuario() {
   */
 
 
- //CONSTRUYENDO LA BASE DE DATOS EN FIRESTORE
+//CONSTRUYENDO LA BASE DE DATOS EN FIRESTORE
 
   var db = firebase.firestore();
   var colUsuarios = db.collection('Usuarios');

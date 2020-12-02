@@ -1,21 +1,40 @@
 <!-- We don't need a full layout in this file because this page will be parsed with Ajax.  -->
 <div class="page" data-name="registracion">
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="navbar-bg"></div>
+        <div class="navbar-inner sliding">
+        <div class="left">
+            <a class="link back">
+            <i class="icon icon-back"></i>
+            <span class="if-not-md">Back</span>
+            </a>
+        </div>
+        <div class="title">Registro</div>
+        </div>
+    </div>
+
+<!-- Scrollable page content -->
+<div class="page-content">
+
     <!-- Primera Card para el registro de USUARIOS -->
-    <div class="card card-expandable">
+    <div class="card card-expandable hide-navbar-on-scroll">
         <div class="card-content">
             <div class="bg-color-primary" style="height: 300px">
                 <div class="card-header text-color-white display-block">
-                    Registro <strong>Usuario</strong>
-                    <br>
+                    <strong>Usuario</strong><br>
                     <small style="opacity: 0.7">para <em>hacer</em> Donaciones</small>
                 </div>
-                <a href="#" class="link card-close card-opened-fade-in color-black"
-                    style="position: absolute; right: 15px; top: 15px">
+                <a href="#" class="link card-close card-opened-fade-in color-white" style="position: absolute; right: 15px; top: 15px">
                     <i class="icon f7-icons">xmark_circle_fill</i>
                 </a>
+                <div class="col-60">
+                    <img data-src="img/logoWhite01.png" class="lazy">
+                </div>
+                
             </div>
             <div class="card-content-padding">
-                <br><br>
                 <form class="list" id="my-form">
                     <ul>
                         <li>
@@ -23,8 +42,7 @@
                                 <div class="item-inner">
                                     <div class="item-title item-label">Nombre</div>
                                     <div class="item-input-wrap">
-                                        <input type="text" id="regNombre" name="regNombre"
-                                            placeholder="Ingresa tu Nombre">
+                                        <input type="text" id="regNombre" name="regNombre" placeholder="Ingresa tu Nombre" required validate>
                                     </div>
                                 </div>
                             </div>
@@ -34,8 +52,7 @@
                                 <div class="item-inner">
                                     <div class="item-title item-label">Apellido</div>
                                     <div class="item-input-wrap">
-                                        <input type="text" id="regApellido" name="regApellido"
-                                            placeholder="Ingresa tu Apellido">
+                                        <input type="text" id="regApellido" name="regApellido" placeholder="Ingresa tu Apellido" required validate>
                                     </div>
                                 </div>
                             </div>
@@ -43,10 +60,9 @@
                         <li>
                             <div class="item-content item-input">
                                 <div class="item-inner">
-                                    <div class="item-title item-label">E-mail</div>
+                                    <div class="item-title item-label">Email</div>
                                     <div class="item-input-wrap">
-                                        <input type="email" id="regEmail" name="loginEmail"
-                                            placeholder="Ingresa tu E-mail">
+                                        <input type="email" id="regEmail" name="loginEmail" placeholder="Ingresa tu E-mail" required validate>
                                     </div>
                                 </div>
                             </div>
@@ -54,10 +70,39 @@
                         <li>
                             <div class="item-content item-input">
                                 <div class="item-inner">
-                                    <div class="item-title item-label">Clave</div>
+                                    <div class="item-title item-label">Contraseña</div>
                                     <div class="item-input-wrap">
-                                        <input type="password" id="regPass" name="loginPass"
-                                            placeholder="Ingresa tu Clave">
+                                        <input type="password" id="regPass" name="loginPass" placeholder="Ingresa tu Contraseña" required validate>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content item-input">
+                                <div class="item-inner">
+                                    <div class="item-title item-label">Telefono</div>
+                                    <div class="item-input-wrap">
+                                        <input type="text" pattern="[0-9]*" id="regTel" data-error-message="Solo numeros porfavor!" name="loginTel" placeholder="Ingresa tu Telefono" required validate>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content item-input">
+                                <div class="item-inner">
+                                    <div class="item-title item-label">Ciudad</div>
+                                    <div class="item-input-wrap">
+                                        <input type="text" id="regCiudad" name="regCiudad" placeholder="Ingresa tu Ciudad" required validate>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content item-input">
+                                <div class="item-inner">
+                                    <div class="item-title item-label">Dirección</div>
+                                    <div class="item-input-wrap">
+                                        <input type="text" id="regDirec" name="regDirec" placeholder="Ingresa tu Dirección" required validate>
                                     </div>
                                 </div>
                             </div>
@@ -65,7 +110,7 @@
                     </ul>
                 </form>
                 <div class="block block-strong row">
-                    <div class="col"><a class="button" id="btnFinReg">Finalizar</a></div>
+                    <div class="col"><a class="button" id="btnFinReg"><em>REGISTRARSE</em></a></div>
                 </div>
             </div>
         </div>
@@ -76,17 +121,14 @@
         <div class="card-content">
             <div class="bg-color-white" style="height: 300px">
                 <div class="card-header text-color-primary display-block">
-                    Registro <strong>ORG</strong>
-                    <br>
+                    <strong>Org´s</strong><br>
                     <small style="opacity: 0.7">para <em>recibir</em> Donaciones</small>
                 </div>
-                <a href="#" class="link card-close card-opened-fade-in color-black"
-                    style="position: absolute; right: 15px; top: 15px">
+                <a href="#" class="link card-close card-opened-fade-in color-primary" style="position: absolute; right: 15px; top: 15px">
                     <i class="icon f7-icons">xmark_circle_fill</i>
                 </a>
             </div>
             <div class="card-content-padding">
-                <br><br>
                 <form class="list" id="my-form">
                     <ul>
                         <li>
@@ -94,8 +136,7 @@
                                 <div class="item-inner">
                                     <div class="item-title item-label">Nombre</div>
                                     <div class="item-input-wrap">
-                                        <input type="text" id="regNombre" name="regNombre"
-                                            placeholder="Ingresa tu Nombre">
+                                        <input type="text" id="regNombre" name="regNombre" placeholder="Ingresa tu Nombre" required validate>
                                     </div>
                                 </div>
                             </div>
@@ -105,8 +146,7 @@
                                 <div class="item-inner">
                                     <div class="item-title item-label">Apellido</div>
                                     <div class="item-input-wrap">
-                                        <input type="text" id="regApellido" name="regApellido"
-                                            placeholder="Ingresa tu Apellido">
+                                        <input type="text" id="regApellido" name="regApellido" placeholder="Ingresa tu Apellido" required validate>
                                     </div>
                                 </div>
                             </div>
@@ -114,10 +154,9 @@
                         <li>
                             <div class="item-content item-input">
                                 <div class="item-inner">
-                                    <div class="item-title item-label">E-mail</div>
+                                    <div class="item-title item-label">Email</div>
                                     <div class="item-input-wrap">
-                                        <input type="email" id="regEmail" name="loginEmail"
-                                            placeholder="Ingresa tu E-mail">
+                                        <input type="email" id="regEmail" name="loginEmail" placeholder="Ingresa tu E-mail" required validate>
                                     </div>
                                 </div>
                             </div>
@@ -125,10 +164,39 @@
                         <li>
                             <div class="item-content item-input">
                                 <div class="item-inner">
-                                    <div class="item-title item-label">Clave</div>
+                                    <div class="item-title item-label">Contraseña</div>
                                     <div class="item-input-wrap">
-                                        <input type="password" id="regPass" name="loginPass"
-                                            placeholder="Ingresa tu Clave">
+                                        <input type="password" id="regPass" name="loginPass" placeholder="Ingresa tu Contraseña" required validate>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content item-input">
+                                <div class="item-inner">
+                                    <div class="item-title item-label">Telefono</div>
+                                    <div class="item-input-wrap">
+                                        <input type="text" pattern="[0-9]*" id="regTel" data-error-message="Solo numeros porfavor!" name="loginTel" placeholder="Ingresa tu Telefono" required validate>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content item-input">
+                                <div class="item-inner">
+                                    <div class="item-title item-label">Ciudad</div>
+                                    <div class="item-input-wrap">
+                                        <input type="text" id="regCiudad" name="regCiudad" placeholder="Ingresa tu Ciudad" required validate>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content item-input">
+                                <div class="item-inner">
+                                    <div class="item-title item-label">Dirección</div>
+                                    <div class="item-input-wrap">
+                                        <input type="text" id="regDirec" name="regDirec" placeholder="Ingresa tu Dirección" required validate>
                                     </div>
                                 </div>
                             </div>
@@ -136,12 +204,10 @@
                     </ul>
                 </form>
                 <div class="block block-strong row">
-                    <div class="col"><a class="button" id="btnFinReg">Finalizar</a></div>
+                    <div class="col"><a class="button" id="btnFinReg"><em>REGISTRARSE</em></a></div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="block-footer">
-        <p><a class="link login-screen-close" href="/" data-view=".page-content">Volver a la página principal</a></p>
-    </div>
+</div>
 </div>

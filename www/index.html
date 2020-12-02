@@ -20,7 +20,7 @@
     <!--    Framework7    -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <!-- Color theme for statusbar -->
-    <meta name="theme-color" content="#2196f3">
+    <meta name="theme-color" content="#7ad091">
     <!-- Your app title -->
     <title>InfluenceZone</title>
     <!-- Path to Framework7 Library CSS -->
@@ -40,44 +40,73 @@
 
 <body>
     <div id="app">
-        <!-- Statusbar overlay -->
-        <div class="statusbar"></div>
-
         <!-- Your main view, should have "view-main" class -->
         <div class="view view-main">
-
             <!-- Initial Page, "data-name" contains page name -->
             <div data-name="index" class="page">
-
                 <!-- Scrollable page content -->
                 <div class="page-content">
-                    <div class="block">
+                <div class="block">
 
-                        <!-- Logo de App -->
-                        <div class="row">
-                            <div class="col-100 medium-60">
-                                <img data-src="img/logo03.png" class="lazy">
-                                <img data-src="img/logo02.png" class="lazy">
-                            </div>
-                        </div>
 
-                        <!-- btn de registro e inicio de sesión -->
-                        <div class="block">
-                            <p class="row">
-                                <a href="/reg-screen/" class="col button button-raised button-round">Registrarse</a>
-                                <a href="#" class="col button button-raised button-fill button-round login-screen-open"
-                                    data-login-screen=".login-screen">Iniciar Sesión</a>
-                            </p>
-                        </div>
 
-                        <!-- pequeño msj de inicio y msj de error -->
-                        <div class="block">
-                            <div id="loginMensaje"></div>
-                            <p class="row">
-                                <em>Cerca tuyo existe alguien que necesita de vos, de tu ayuda, de lo que vos podés dar,
-                                    <strong>alguien que influencie sus vidas positivamente.</strong></em>
-                            </p>
-                        </div>
+                    <!-- Links de prueba -->
+                    <div class="col">
+                        <a href="/mapa/" class="button">mapa</a>
+                    </div>
+                    
+
+
+
+                <!-- Logo de App -->
+                <div class="row login-screen-open" data-login-screen=".login-screen">
+                    <div class="col-15 medium-60"></div>
+                    <div class="col-70 medium-60">
+                        <img data-src="img/logo03.png" class="lazy">
+                        <img data-src="img/logo02.png" class="lazy">
+                    </div>
+                    <div class="col-15 medium-60"></div>
+
+                <!-- btn de inicio de sesión -->
+                    <div class="col">
+                        <a href="#" class="col button login-screen-open" data-login-screen=".login-screen">
+                            Comenzar tocando en la pantalla
+                        </a>
+                    </div>
+                </div>
+                </div>
+
+                <!-- Slider con imagenes sobre las personas que necesitan ayuda -->
+                <div class="swiper-container swiper-init demo-swiper login-screen-open" data-login-screen=".login-screen" style="margin-bottom: 0;">
+                    <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img data-src="img/poverty01.jpg" class="lazy"></div>
+                    <div class="swiper-slide"><img data-src="img/poverty02.jpg" class="lazy"></div>
+                    <div class="swiper-slide"><img data-src="img/poverty03.jpg" class="lazy"></div>
+                    <div class="swiper-slide"><img data-src="img/poverty04.jpg" class="lazy"></div>
+                    <div class="swiper-slide"><img data-src="img/poverty05.jpg" class="lazy"></div>
+                    <div class="swiper-slide"><img data-src="img/poverty06.jpg" class="lazy"></div>
+                    <div class="swiper-slide"><img data-src="img/poverty07.jpg" class="lazy"></div>
+                    <div class="swiper-slide"><img data-src="img/poverty08.jpg" class="lazy"></div>
+                    <div class="swiper-slide"><img data-src="img/poverty09.jpg" class="lazy"></div>
+                    <div class="swiper-slide"><img data-src="img/poverty10.jpg" class="lazy"></div>
+                    <div class="swiper-slide"><img data-src="img/poverty11.jpg" class="lazy"></div>
+                    <div class="swiper-slide"><img data-src="img/poverty12.jpg" class="lazy"></div>
+                    </div>
+                </div>
+
+                <!-- pequeño msj de inicio y msj de error -->
+                <div class="block login-screen-open" data-login-screen=".login-screen" style="margin-top: 0;">
+                    <p class="row">
+                        <div id="loginMensaje"></div>
+                        <em>Cerca tuyo existe alguien que necesita de vos, de tu ayuda, de lo que vos podés dar,
+                            <strong>alguien que influencie sus vidas positivamente.</strong>
+                        </em>
+                    </p>
+                </div>
+
+
+                </a>
+
 
                         <!-- pop / inicio de sesión -->
                         <div class="login-screen">
@@ -95,7 +124,7 @@
                                                             <div class="item-title item-label">Email</div>
                                                             <div class="item-input-wrap">
                                                                 <input type="email" id="loginEmail" name="loginEmail"
-                                                                    placeholder="Inrgesa tu E-mail">
+                                                                    placeholder="Ingresa tu E-mail">
                                                             </div>
                                                         </div>
                                                     </li>
@@ -110,22 +139,28 @@
                                                     </li>
                                                 </ul>
                                             </div>
-                                            <div class="list">
-                                                <ul>
-                                                    <p>
-                                                        <li><a class="list-button login-screen-close"
-                                                                id="btnLogin">INICIAR SESIÓN</a></li>
-                                                    </p>
-                                                </ul>
-                                                <!-- msj de error, registro y volver atras -->
-                                                <div class="block-footer">
-                                                    <div id="loginMensaje"></div>
-                                                    <a href="/registracion/" data-view=".page-content"
-                                                        class="link login-screen-close"><em>Si aun no tenes una cuenta,
-                                                            porfavor <strong>Registrate aqui</strong></em></a>
-                                                    <p><a class="link login-screen-close" href="#">Volver a la página
-                                                            principal</a></p>
+                                            <div class="row">
+                                                <div class="col-15"></div>
+                                                <div class="col-70">
+                                                    <a class="col button button-raised button-fill button-round login-screen-close open-preloader" id="btnLogin">
+                                                        INICIAR SESIÓN
+                                                    </a>
                                                 </div>
+                                                <div class="col-15"></div>
+                                            </div>
+                                            <br>
+                                            <!-- msj de error, registro y volver atras -->
+                                            <div class="block-footer">
+                                                <p>
+                                                    <a href="/registracion/" data-view=".page-content" class="link login-screen-close">
+                                                        <em><strong>Si aun no tenes una cuenta, Registrate aqui</strong></em>
+                                                    </a>
+                                                </p>
+                                                <p>
+                                                    <a class="link login-screen-close" href="#">
+                                                        VOLVER A LA PÁGINA PRINCIPAL
+                                                    </a>
+                                                </p>
                                             </div>
                                         </form>
                                     </div>
@@ -197,5 +232,4 @@
 -->
 
 </body>
-
 </html>

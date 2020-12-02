@@ -1,15 +1,92 @@
 <!-- We don't need a full layout in this file because this page will be parsed with Ajax.  -->
 <div class="page" data-name="mapa">
-    <div class="page-content">
-        <div class="block block-strong">
-            <div class="block">
-                <p class="row">
-                    <a href="/perfil/"><button class="col button button-raised button-fill button-round">al Perfil</button></a>
-                    <a href="/"></a><button class="col button button-raised button-fill button-round" id="btnInfluence">Influence</button></a>
-                    <a href="/"></a><button class="col button button-raised button-fill button-round" id="btnNextFocus">Next Focus</button></a>
-                </p>
+    <!-- Parte inferior central extendida de FAB -->
+    <div class="fab fab-extended fab-center-bottom color-primary">
+        <a href="#">
+            <i class="icon f7-icons if-not-md">plus</i>
+            <i class="icon material-icons md-only">placemark</i>
+            <div class="fab-text">Next Focus</div>
+        </a>
+    </div>
+
+    <!-- Appbar -->
+    <div class="appbar">
+        <div class="appbar-inner">
+            <div class="left">
+                <a href="#" class="button button-small panel-toggle display-flex" data-panel="left">
+                    <i class="f7-icons">bars</i>
+                </a>
+                <a href="#" class="button button-small display-flex margin-left-half">
+                    <i class="f7-icons">arrowshape_turn_up_left_fill</i>
+                </a>
+                <a href="#" class="button button-small display-flex margin-left-half">
+                    <i class="f7-icons">arrowshape_turn_up_right_fill</i>
+                </a>
             </div>
-            <div style="width: 100%; height: 80vh; margin: 0!important; padding: 0!important; border: 1px solid #000;" id="mapContainer"></div>
+            <div class="right">
+                <div class="searchbar searchbar-inline">
+                    <div class="searchbar-input-wrap">
+                        <input type="text" placeholder="Search app" />
+                        <i class="searchbar-icon"></i>
+                        <div class="input-clear-button"></div>
+                    </div>
+                </div>
+            </div>
         </div>
+    </div>
+
+    <!-- panel del menu -->
+    <div class="panel panel-left panel-reveal panel-resizable panel-init bg-color-primary text-color-white">
+        <div class="block">
+            <div class="title-large ">
+                <div class="col">
+                    <img src="img/logoWhite01.png" class="lazy" />
+                </div>
+                <p class="pacifico" style=" font-size: xx-large;">MENU</p>
+            </div>
+            <p><a class="panel-close text-color-white" style=" font-size: large;" href="/perfil/">Ir a mi Pefil</a></p>
+            <p><a class="panel-close text-color-white" style=" font-size: large;" href="#">bla bla bla</a></p>
+            <p><a class="panel-close text-color-white" style=" font-size: large;" href="#">ja ja ja</a></p>
+            <p>
+                <a class="panel-close text-color-white" style=" font-size: large;" href="/infoapp/">Informacion sobre la App</a>
+            </p>
+            <p><a class="panel-close text-color-white" style="font-size: large;" href="#">Volver al mapa</a></p>
+            <p><a class="panel-close text-color-white" style="font-size: large;" href="/">Cerrar Sesión</a></p>
+        </div>
+    </div>
+
+    <div class="page-content">
+        <!-- navbar -->
+        <div class="navbar navbar-large">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner sliding">
+                
+                <div class="left">
+                    <a href="#" class="link back">
+                        <i class="icon icon-back"></i>
+                        <span>Back</span>
+                    </a>
+                </div>
+                
+                <div class="right">
+                    <a href="#" class="link">
+                        <i class="icon another-icon"></i>
+                        <span>Menu</span>
+                    </a>
+                </div>
+
+                <div class="title-large">
+                    <div class="title-large-text">Mapa de tu Influence Zone</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mapa -->
+        <div style="
+    width: 100%;
+    height: 85vh;
+    margin: 0 !important;
+    padding: 0 !important;
+    " id="mapContainer"></div>
     </div>
 </div>

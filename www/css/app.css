@@ -1,4 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+.pacifico{ font-family: 'Pacifico', cursive; }
+/*.quicksand { font-family: 'Quicksand', sans-serif; }*/
+
 
 /* Your app custom styles here */
 /* poppins-regular - latin */
@@ -81,7 +86,6 @@
 }
 
 * {
-  /*font-family: 'Poppins', Arial, sans-serif;*/
   font-family: 'Quicksand', sans-serif;
 }
 
@@ -145,4 +149,34 @@ img {
   height: auto;
   margin-left: auto;
   margin-right: auto;
+}
+
+/* A bit of demo styles */
+.demo-swiper .swiper-slide {
+  font-size: 25px;
+  font-weight: 300;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  color: #000;
+}
+.demo-swiper .swiper-slide {
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  background: #fff;
+}
+.demo-swiper {
+  margin: 0px 0 35px;
+  font-size: 18px;
+  height: 120px;
+}
+.demo-swiper.demo-swiper-auto .swiper-slide {
+  width: 85%;
+}
+.demo-swiper.demo-swiper-auto .swiper-slide:nth-child(2n) {
+  width: 70%;
+}
+.demo-swiper.demo-swiper-auto .swiper-slide:nth-child(3n) {
+  width: 30%;
 }
