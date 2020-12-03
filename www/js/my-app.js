@@ -1,4 +1,3 @@
-var test = 1;
 // If we need to use custom DOM library, let's save it to $$ variable:
 var $$ = Dom7;
 
@@ -13,7 +12,9 @@ var app = new Framework7({
     panel: {
       swipe: 'left',
     },
-    // Add default routes
+//////////////////////////////////////////////////////////////////////////////////////////
+//    RUTAS
+//////////////////////////////////////////////////////////////////////////////////////////
     routes: [
       {
         path: '/',
@@ -46,20 +47,25 @@ var app = new Framework7({
     ]
   });
 
+
+//////////////////////////////////////////////////////////////////////////////////////////
+//    ALGUNAS VARIABLES GENERALES QUE SE USAN FRECUENTEMENTE EN ESTE ARCHIVO JS
+//////////////////////////////////////////////////////////////////////////////////////////
 var mainView = app.views.create('.view-main');
+var test = 1;
+var email,password, latitud, longitud, platform, pos, icon, toastWithCallback;
 
-var email,password, latitud, longitud, platform, pos, icon;
+
 
 //////////////////////////////////////////////////////////////////////////////////////////
-//APP INICIALIZADA
+//    APP INICIALIZADA
 //////////////////////////////////////////////////////////////////////////////////////////
-// Handle Cordova Device Ready Event
 $$(document).on('deviceready', function() {
     mostrar("Device is ready!");
 
 /////////////////////////////////////////////////
-//  HERE MAPAS
-//  Iniciamos Platform de HereMaps
+//     HERE MAPAS
+//     Iniciamos Platform de HereMaps
 /////////////////////////////////////////////////
     //Initialize the Platform object
     platform = new H.service.Platform({
@@ -85,7 +91,6 @@ $$(document).on('deviceready', function() {
     };
 
     // onError Callback receives a PositionError object
-    //
     function onError(error) {
         alert('code: '    + error.code    + '\n' +
               'message: ' + error.message + '\n');
@@ -94,10 +99,10 @@ $$(document).on('deviceready', function() {
     navigator.geolocation.getCurrentPosition(onSuccess, onError);
 });
 
+
 //////////////////////////////////////////////////////////////////////////////////////////
-//EN TODAS LAS PAGINAS
+//    EN TODAS LAS PAGINAS
 //////////////////////////////////////////////////////////////////////////////////////////
-// Option 1. Using one 'page:init' handler for all pages
 $$(document).on('page:init', function (e) {
     // Do something here when page loaded and initialized
     mostrar(e);
@@ -111,32 +116,38 @@ $$(document).on('page:init', function (e) {
 });
 
 //////////////////////////////////////////////////////////////////////////////////////////
-//INDEX
+//    INDEX
 //////////////////////////////////////////////////////////////////////////////////////////
 // Option 2. Using live 'page:init' event handlers for each page
 $$(document).on('page:init', '.page[data-name="index"]', function (e) {
-    // Do something here when page with data-name="about" attribute loaded and initialized
+
     mostrar("pantalla index");
+
     var mySwiper = new Swiper('.swiper-container', {
       autoplay: {
         delay: 5000,
       },
     });
     $$('#btnLogin').on('click', fnLogin);
+
 });
 
 //////////////////////////////////////////////////////////////////////////////////////////
-//REGISTRACION DE USUARIOS Y ORGS
+//    REGISTRACION DE USUARIOS Y ORGS
 //////////////////////////////////////////////////////////////////////////////////////////
 $$(document).on('page:init', '.page[data-name="registracion"]', function (e) {
-    // Do something here when page with data-name="about" attribute loaded and initialized
+
     mostrar("pantalla de registracion");
-    $$('#btnFinReg').on('click', fnRegistro);
-    $$('#btnFinReg').on('click', guarDatoUsuario);
+
+    $$('#btnFinRegUsuario').on('click', fnRegistroUsuario);
+    $$('#btnFinRegUsuario').on('click', guarDatoUsuario);
+
+    $$('#btnFinRegOrg').on('click', fnRegistroOrg);
+    $$('#btnFinRegOrg').on('click', guarDatoOrg);
 });
 
 //////////////////////////////////////////////////////////////////////////////////////////
-//PERFIL DEL USUARIO
+//    PERFIL DEL USUARIO
 //////////////////////////////////////////////////////////////////////////////////////////
 $$(document).on('page:init', '.page[data-name="perfil"]', function (e) {
     mostrar("pantalla del perfil de usuario");
@@ -150,15 +161,13 @@ $$(document).on('page:init', '.page[data-name="perfil"]', function (e) {
 });
 
 //////////////////////////////////////////////////////////////////////////////////////////
-//PANTALLA DEL MAPA
+//    PANTALLA DEL MAPA
 //////////////////////////////////////////////////////////////////////////////////////////
-// Option 2. Using live 'page:init' event handlers for each page
 $$(document).on('page:init', '.page[data-name="mapa"]', function (e) {
-    // Do something here when page with data-name="about" attribute loaded and initialized
     mostrar("pantalla del mapa");
 
 /////////////////////////////////////////////////
-//  HERE MAPS
+//    HERE MAPS
 /////////////////////////////////////////////////
     // Obtain the default map types from the platform object:
     var defaultLayers = platform.createDefaultLayers();
@@ -180,14 +189,11 @@ $$(document).on('page:init', '.page[data-name="mapa"]', function (e) {
     map.addObject(marker);
     map.setCenter(coords);
 
-
-
     // BURBUJA DE INFORMACION en la zona en donde esta el usuario
     // Create an info bubble object at a specific geographic location:
     var bubble = new H.ui.InfoBubble({ lat: latitud, lng: longitud }, {
       content: '<b>Estas Aqui! Y esta es tu zona de influencia</b>'
     });
-
 
     // Create a marker icon from an image URL:
     icon = new H.map.Icon('img/logo03.png');
@@ -196,15 +202,11 @@ $$(document).on('page:init', '.page[data-name="mapa"]', function (e) {
     // Add the marker to the map:
     map.addObject(marker);
 
-
-
-
     // Configuracion del LENGUAJE DEL MAPA
     // Create the default UI:
     var ui = H.ui.UI.createDefault(map, defaultLayers, 'es-ES');
     // Add info bubble to the UI:
     ui.addBubble(bubble);
-
 
     // Se agrega funcionalidades: tactil/mouse (EVENTOS EN EL MAPA)
     // Enable the event system on the map instance:
@@ -216,7 +218,6 @@ $$(document).on('page:init', '.page[data-name="mapa"]', function (e) {
     });
     // Instantiate the default behavior, providing the mapEvents object:
     var behavior = new H.mapevents.Behavior(mapEvents);
-
 
     //Creacion de una CODIFICACION GEOGRAFICA que pinta un CIRCULO en la zona de influencia
     // Instantiate a circle object (using the default style):
@@ -252,7 +253,7 @@ $$(document).on('page:init', '.page[data-name="mapa"]', function (e) {
 });
 
 //////////////////////////////////////////////////////////////////////////////////////////
-//INFO DE LA APP
+//    INFO DE LA APP
 //////////////////////////////////////////////////////////////////////////////////////////
 $$(document).on('page:init', '.page[data-name="info"]', function (e) {
     mostrar("pantalla de info de la app");
@@ -261,9 +262,8 @@ $$(document).on('page:init', '.page[data-name="info"]', function (e) {
 
 
 
-
 //////////////////////////////////////////////////////////////////////////////////////////
-//MIS FUNCIONES
+//    MIS FUNCIONES
 //////////////////////////////////////////////////////////////////////////////////////////
 
 function mostrar(txt) {
@@ -274,7 +274,7 @@ function mostrar(txt) {
 
 
 function fnLogin() {
-  //usuario: prueba@prueba.com | prueba
+//en Firebase esta activa la autenticación por medio del correo y clave
   email = $$('#loginEmail').val();
   password = $$('#loginPass').val();
   mostrar('email: '+ email);
@@ -287,11 +287,29 @@ function fnLogin() {
     // Handle Errors here.
     var errorCode = error.code;
     var errorMessage = error.message;
-    $$('#loginMensaje').html(errorMessage);
+    console.log(errorCode);
+    console.log(errorMessage);
+    $$('#loginMensaje').html('<p><a href="/registracion/" data-view=".page-content" class="link login-screen-close text-color-red"><em><strong>Si aun no tenes una cuenta, Registrate aqui</strong></em></a></p>');
+    
+    // Create toast with callback on close
+    toastWithCallback = app.toast.create({
+      text: errorCode,
+      closeButton: true,
+      on: {
+        close: function () {
+          app.dialog.alert(errorMessage);
+        },
+      }
+    });
+    toastWithCallback.open();
   });
 }
 
-function fnRegistro() {
+
+/////////////////////////////////
+//    USUARIO
+/////////////////////////////////
+function fnRegistroUsuario() {
 
   email = $$('#regEmail').val();
   password = $$('#regPass').val();
@@ -309,21 +327,17 @@ function fnRegistro() {
     // ...
   });
 }
-
 //Funcion de inicializacion y creacion de base de datos
 function guarDatoUsuario() {
   /*
-  Coleccion: PERSONAS       <- colPersonas
+  Coleccion: USUARIOS       <- colUsuarios
     ID: email@email.com     <- claveDeColleccion
     DATOS JASON:            <- datos
             nombre
             apellido
-            foto (servicio de storage)
             latitud
             longitud
   */
-
-
 //CONSTRUYENDO LA BASE DE DATOS EN FIRESTORE
 
   var db = firebase.firestore();
@@ -336,7 +350,6 @@ function guarDatoUsuario() {
     nombre: nombre,
     apellido: apellido,
     email: email,
-    foto: 'ninguna',
     latitud: latitud,
     longitud: longitud
   }
@@ -347,28 +360,82 @@ function guarDatoUsuario() {
 
 }
 
+/////////////////////////////////
+// ORGANIZACION
+/////////////////////////////////
+function fnRegistroOrg() {
+
+  email = $$('#regEmail').val();
+  password = $$('#regPass').val();
+  mostrar('email: '+ email);
+  mostrar('password: '+ password);
+  
+  firebase.auth().createUserWithEmailAndPassword(email, password)
+  .then( function() {
+    mainView.router.navigate("/mapa/");
+  })
+  .catch(function(error) {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    // ...
+  });
+}  
+
+//Funcion de inicializacion y creacion de base de datos
+function guarDatoOrg() {
+/*
+Coleccion: ORGANIZACIONES       <- colOrganizaciones
+  ID: email@email.com     <- claveDeColleccion
+  DATOS JASON:            <- datos
+          nombre
+          apellido
+          latitud
+          longitud
+*/
+//CONSTRUYENDO LA BASE DE DATOS EN FIRESTORE
+var db = firebase.firestore();
+var colOrganizaciones = db.collection('Organizaciones');
+
+claveDeColleccion = email;
+nombre = $$('#nombreUsuario').val();
+apellido = $$('#apellidoUsuario').val();
+datos = {
+  nombre: nombre,
+  apellido: apellido,
+  email: email,
+  latitud: latitud,
+  longitud: longitud
+};
+
+colOrganizaciones.doc(claveDeColleccion).set(datos)
+  .catch(function (e) {
+  });
+}
+
+
 function fnGaleria() {
-    navigator.camera.getPicture(onSuccessCamara, onErrorCamara,
-    {
-        quality: 50,
-        destinationType: Camera.DestinationType.FILE_URI,
-        sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
-    });
+navigator.camera.getPicture(onSuccessCamara, onErrorCamara,
+{
+    quality: 50,
+    destinationType: Camera.DestinationType.FILE_URI,
+    sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
+});
 }
 
 function fnGamara() {
-    navigator.camera.getPicture(onSuccessCamara, onErrorCamara,
-    {
-        quality: 50,
-        destinationType: Camera.DestinationType.FILE_URI,
-        sourceType: Camera.PictureSourceType.CAMERA,
-    });
+navigator.camera.getPicture(onSuccessCamara, onErrorCamara,
+{
+    quality: 50,
+    destinationType: Camera.DestinationType.FILE_URI,
+    sourceType: Camera.PictureSourceType.CAMERA,
+});
 }
 
 function onSuccessCamara(imageURI) {
-  $$('#perFoto').attr('src', imageURI);
+$$('#perFoto').attr('src', imageURI);
 }
 
 function onErrorCamara(message) {
-  alert('Failed because: ' + message);
+alert('Failed because: ' + message);
 }
