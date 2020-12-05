@@ -29,40 +29,16 @@
                 <a href="#" class="link card-close card-opened-fade-in color-white" style="position: absolute; right: 15px; top: 15px">
                     <i class="icon f7-icons">xmark_circle_fill</i>
                 </a>
-                <div class="col-60">
-                    <img data-src="img/logoWhite01.png" class="lazy">
-                </div>
-                
             </div>
             <div class="card-content-padding">
-                <form class="list" id="my-form">
+                <form class="list" id="my-form-user">
                     <ul>
-                        <li>
-                            <div class="item-content item-input">
-                                <div class="item-inner">
-                                    <div class="item-title item-label">Nombre</div>
-                                    <div class="item-input-wrap">
-                                        <input type="text" id="nombreUsuario" name="regNombre" placeholder="Ingresa tu Nombre" required validate>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="item-content item-input">
-                                <div class="item-inner">
-                                    <div class="item-title item-label">Apellido</div>
-                                    <div class="item-input-wrap">
-                                        <input type="text" id="apellidoUsuario" name="regApellido" placeholder="Ingresa tu Apellido" required validate>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
                         <li>
                             <div class="item-content item-input">
                                 <div class="item-inner">
                                     <div class="item-title item-label">Email</div>
                                     <div class="item-input-wrap">
-                                        <input type="email" id="regEmail" name="loginEmail" placeholder="Ingresa tu E-mail" required validate>
+                                        <input type="email" id="emailUsuario" name="emailUsuario" placeholder="Ingresa tu Email" required validate>
                                     </div>
                                 </div>
                             </div>
@@ -72,7 +48,27 @@
                                 <div class="item-inner">
                                     <div class="item-title item-label">Contraseña</div>
                                     <div class="item-input-wrap">
-                                        <input type="password" id="regPass" name="loginPass" placeholder="Ingresa tu Contraseña" required validate>
+                                        <input type="password" id="passUsuario" name="passUsuario" placeholder="Ingresa tu Contraseña" required validate>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content item-input">
+                                <div class="item-inner">
+                                    <div class="item-title item-label">Nombre</div>
+                                    <div class="item-input-wrap">
+                                        <input type="text" id="nombreUsuario" name="nombreUsuario" placeholder="Ingresa tu Nombre" required validate>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content item-input">
+                                <div class="item-inner">
+                                    <div class="item-title item-label">Apellido</div>
+                                    <div class="item-input-wrap">
+                                        <input type="text" id="apellidoUsuario" name="apellidoUsuario" placeholder="Ingresa tu Apellido" required validate>
                                     </div>
                                 </div>
                             </div>
@@ -82,7 +78,17 @@
                                 <div class="item-inner">
                                     <div class="item-title item-label">Telefono</div>
                                     <div class="item-input-wrap">
-                                        <input type="text" pattern="[0-9]*" id="regTel" data-error-message="Solo numeros porfavor!" name="loginTel" placeholder="Ingresa tu Telefono" required validate>
+                                        <input type="text" pattern="[0-9]*" id="telUsuario" data-error-message="Solo numeros porfavor!" name="telUsuario" placeholder="Ingresa tu Telefono" required validate>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content item-input">
+                                <div class="item-inner">
+                                    <div class="item-title item-label">Provincia</div>
+                                    <div class="item-input-wrap">
+                                        <input type="text" id="provinciaUsuario" name="provinciaUsuario" placeholder="Ingresa tu Provincia" required validate>
                                     </div>
                                 </div>
                             </div>
@@ -92,7 +98,7 @@
                                 <div class="item-inner">
                                     <div class="item-title item-label">Ciudad</div>
                                     <div class="item-input-wrap">
-                                        <input type="text" id="regCiudad" name="regCiudad" placeholder="Ingresa tu Ciudad" required validate>
+                                        <input type="text" id="ciudadUsuario" name="ciudadUsuario" placeholder="Ingresa tu Ciudad" required validate>
                                     </div>
                                 </div>
                             </div>
@@ -102,7 +108,7 @@
                                 <div class="item-inner">
                                     <div class="item-title item-label">Dirección</div>
                                     <div class="item-input-wrap">
-                                        <input type="text" id="regDirec" name="regDirec" placeholder="Ingresa tu Dirección" required validate>
+                                        <input type="text" id="direcUsuario" name="direcUsuario" placeholder="Ingresa tu Dirección" required validate>
                                     </div>
                                 </div>
                             </div>
@@ -116,7 +122,7 @@
         </div>
     </div>
 
-    <!-- Segunda Card para el registro de ORG´s -->
+    <!-- Segunda Card para el REGISTRO de ORG´s -->
     <div class="card card-expandable">
         <div class="card-content">
             <div class="bg-color-white" style="height: 300px">
@@ -129,34 +135,14 @@
                 </a>
             </div>
             <div class="card-content-padding">
-                <form class="list" id="my-form">
+                <form class="list" id="my-form-org">
                     <ul>
-                        <li>
-                            <div class="item-content item-input">
-                                <div class="item-inner">
-                                    <div class="item-title item-label">Nombre</div>
-                                    <div class="item-input-wrap">
-                                        <input type="text" id="regNombre" name="regNombre" placeholder="Ingresa tu Nombre" required validate>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="item-content item-input">
-                                <div class="item-inner">
-                                    <div class="item-title item-label">Apellido</div>
-                                    <div class="item-input-wrap">
-                                        <input type="text" id="regApellido" name="regApellido" placeholder="Ingresa tu Apellido" required validate>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
                         <li>
                             <div class="item-content item-input">
                                 <div class="item-inner">
                                     <div class="item-title item-label">Email</div>
                                     <div class="item-input-wrap">
-                                        <input type="email" id="regEmail" name="loginEmail" placeholder="Ingresa tu E-mail" required validate>
+                                        <input type="email" id="emailOrg" name="emailOrg" placeholder="Ingresa el Email de tu Organización" required validate>
                                     </div>
                                 </div>
                             </div>
@@ -166,7 +152,27 @@
                                 <div class="item-inner">
                                     <div class="item-title item-label">Contraseña</div>
                                     <div class="item-input-wrap">
-                                        <input type="password" id="regPass" name="loginPass" placeholder="Ingresa tu Contraseña" required validate>
+                                        <input type="password" id="passOrg" name="passOrg" placeholder="Ingresa una Contraseña" required validate>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content item-input">
+                                <div class="item-inner">
+                                    <div class="item-title item-label">Nombre</div>
+                                    <div class="item-input-wrap">
+                                        <input type="text" id="nombreOrg" name="nombreOrg" placeholder="Ingresa el Nombre de tu Organización" required validate>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content item-input">
+                                <div class="item-inner">
+                                    <div class="item-title item-label">Contacto</div>
+                                    <div class="item-input-wrap">
+                                        <input type="text" id="contactoOrg" name="contactoOrg" placeholder="Ingresa el nombre del Contacto en la Org" required validate>
                                     </div>
                                 </div>
                             </div>
@@ -176,7 +182,17 @@
                                 <div class="item-inner">
                                     <div class="item-title item-label">Telefono</div>
                                     <div class="item-input-wrap">
-                                        <input type="text" pattern="[0-9]*" id="regTel" data-error-message="Solo numeros porfavor!" name="loginTel" placeholder="Ingresa tu Telefono" required validate>
+                                        <input type="text" pattern="[0-9]*" id="telOrg" data-error-message="Solo numeros porfavor!" name="telOrg" placeholder="Ingresa el Telefono de la Organización" required validate>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content item-input">
+                                <div class="item-inner">
+                                    <div class="item-title item-label">Provincia</div>
+                                    <div class="item-input-wrap">
+                                        <input type="text" id="provinciaOrg" name="provinciaOrg" placeholder="Ingresa la Provincia en la que esta la Organización" required validate>
                                     </div>
                                 </div>
                             </div>
@@ -186,7 +202,7 @@
                                 <div class="item-inner">
                                     <div class="item-title item-label">Ciudad</div>
                                     <div class="item-input-wrap">
-                                        <input type="text" id="regCiudad" name="regCiudad" placeholder="Ingresa tu Ciudad" required validate>
+                                        <input type="text" id="ciudadOrg" name="ciudadOrg" placeholder="Ingresa la Ciudad en la que esta la Organización" required validate>
                                     </div>
                                 </div>
                             </div>
@@ -196,7 +212,37 @@
                                 <div class="item-inner">
                                     <div class="item-title item-label">Dirección</div>
                                     <div class="item-input-wrap">
-                                        <input type="text" id="regDirec" name="regDirec" placeholder="Ingresa tu Dirección" required validate>
+                                        <input type="text" id="direcOrg" name="direcOrg" placeholder="Ingresa la Dirección de la Organización" required validate>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content item-input">
+                                <div class="item-inner">
+                                    <div class="item-title item-label">Facebook</div>
+                                    <div class="item-input-wrap">
+                                        <input type="text" id="faceOrg" name="faceOrg" placeholder="Ingresa el Facebook de la Organización" required validate>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content item-input">
+                                <div class="item-inner">
+                                    <div class="item-title item-label">Whatsapp</div>
+                                    <div class="item-input-wrap">
+                                        <input type="text" pattern="[0-9]*" id="whatsOrg" data-error-message="Solo numeros porfavor!" name="whatsOrg" placeholder="Ingresa el Whatsapp de la Organización" required validate>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content item-input">
+                                <div class="item-inner">
+                                    <div class="item-title item-label">Mercado Pago</div>
+                                    <div class="item-input-wrap">
+                                        <input type="text" id="mepaOrg" name="mepaOrg" placeholder="Ingresa el Usuario de MercadoPago de la Organización" required validate>
                                     </div>
                                 </div>
                             </div>
