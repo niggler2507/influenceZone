@@ -35,6 +35,7 @@
     <script src="https://js.api.here.com/v3/3.1/mapsjs-service.js" type="text/javascript" charset="utf-8"></script>
     <script src="https://js.api.here.com/v3/3.1/mapsjs-ui.js" type="text/javascript" charset="utf-8"></script>
     <script src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-clustering.js" type="text/javascript" charset="utf-8"></script>
     <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css" />
 </head>
 
@@ -46,124 +47,121 @@
             <div data-name="index" class="page">
                 <!-- Scrollable page content -->
                 <div class="page-content">
-                <div class="block">
+                    <div class="block">
+
+                        <!-- Links de prueba -->
+                        <div class="col">
+                            <a href="/mapa/" class="button">mapa</a>
+                        </div>
 
 
+                        <!-- Logo de App -->
+                        <div class="row login-screen-open" data-login-screen=".login-screen">
+                            <div class="col-15 medium-60"></div>
+                            <div class="col-70 medium-60">
+                                <img data-src="img/logo03.png" class="lazy">
+                                <img data-src="img/logo02.png" class="lazy">
+                            </div>
+                            <div class="col-15 medium-60"></div>
 
-                    <!-- Links de prueba -->
-                    <div class="col">
-                        <a href="/mapa/" class="button">mapa</a>
+                            <!-- btn de inicio de sesión -->
+                            <div class="col">
+                                <a href="#" class="col button login-screen-open" data-login-screen=".login-screen">
+                                    Comenzar tocando en la pantalla
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    
 
+                    <!-- Slider con imagenes sobre las personas que necesitan ayuda 
+                    login-screen-open" data-login-screen=".login-screen" -->
+                    <div data-pagination='{"el": ".swiper-pagination"}' data-space-between="10" data-slides-per-view="auto" data-centered-slides="true" class="swiper-container swiper-init demo-swiper demo-swiper-auto">
+                        <div class="swiper-pagination"></div>
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><img data-src="img/poverty01.jpg" class="lazy"></div>
+                            <div class="swiper-slide"><img data-src="img/poverty02.jpg" class="lazy"></div>
+                            <div class="swiper-slide"><img data-src="img/poverty03.jpg" class="lazy"></div>
+                            <div class="swiper-slide"><img data-src="img/poverty04.jpg" class="lazy"></div>
+                            <div class="swiper-slide"><img data-src="img/poverty05.jpg" class="lazy"></div>
+                            <div class="swiper-slide"><img data-src="img/poverty06.jpg" class="lazy"></div>
+                            <div class="swiper-slide"><img data-src="img/poverty07.jpg" class="lazy"></div>
+                            <div class="swiper-slide"><img data-src="img/poverty08.jpg" class="lazy"></div>
+                            <div class="swiper-slide"><img data-src="img/poverty09.jpg" class="lazy"></div>
+                            <div class="swiper-slide"><img data-src="img/poverty10.jpg" class="lazy"></div>
+                            <div class="swiper-slide"><img data-src="img/poverty11.jpg" class="lazy"></div>
+                            <div class="swiper-slide"><img data-src="img/poverty12.jpg" class="lazy"></div>
+                        </div>
+                        </div>
 
-
-                <!-- Logo de App -->
-                <div class="row login-screen-open" data-login-screen=".login-screen">
-                    <div class="col-15 medium-60"></div>
-                    <div class="col-70 medium-60">
-                        <img data-src="img/logo03.png" class="lazy">
-                        <img data-src="img/logo02.png" class="lazy">
-                    </div>
-                    <div class="col-15 medium-60"></div>
-
-                <!-- btn de inicio de sesión -->
-                    <div class="col">
-                        <a href="#" class="col button login-screen-open" data-login-screen=".login-screen">
-                            Comenzar tocando en la pantalla
-                        </a>
-                    </div>
-                </div>
-                </div>
-
-                <!-- Slider con imagenes sobre las personas que necesitan ayuda -->
-                <div class="swiper-container swiper-init demo-swiper login-screen-open" data-login-screen=".login-screen" style="margin-bottom: 0;">
-                    <div class="swiper-wrapper">
-                    <div class="swiper-slide"><img data-src="img/poverty01.jpg" class="lazy"></div>
-                    <div class="swiper-slide"><img data-src="img/poverty02.jpg" class="lazy"></div>
-                    <div class="swiper-slide"><img data-src="img/poverty03.jpg" class="lazy"></div>
-                    <div class="swiper-slide"><img data-src="img/poverty04.jpg" class="lazy"></div>
-                    <div class="swiper-slide"><img data-src="img/poverty05.jpg" class="lazy"></div>
-                    <div class="swiper-slide"><img data-src="img/poverty06.jpg" class="lazy"></div>
-                    <div class="swiper-slide"><img data-src="img/poverty07.jpg" class="lazy"></div>
-                    <div class="swiper-slide"><img data-src="img/poverty08.jpg" class="lazy"></div>
-                    <div class="swiper-slide"><img data-src="img/poverty09.jpg" class="lazy"></div>
-                    <div class="swiper-slide"><img data-src="img/poverty10.jpg" class="lazy"></div>
-                    <div class="swiper-slide"><img data-src="img/poverty11.jpg" class="lazy"></div>
-                    <div class="swiper-slide"><img data-src="img/poverty12.jpg" class="lazy"></div>
-                    </div>
-                </div>
-
-                <!-- pequeño msj de inicio y msj de error -->
-                <div class="block login-screen-open" data-login-screen=".login-screen" style="margin-top: 0;">
-                    <p class="row">
+                    <!-- pequeño msj de inicio y msj de error -->
+                    <div class="block login-screen-open" data-login-screen=".login-screen" style="margin-top: 0;">
+                        <p class="row">
                         <div id="loginMensaje"></div>
-                        <em class="text-color-primary">Cerca tuyo existe alguien que necesita de vos, de tu ayuda, de lo que vos podés dar,
+                        <em class="text-color-primary">Cerca tuyo existe alguien que necesita de vos, de tu ayuda, de lo
+                            que vos podés dar,
                             <strong>alguien que influencie sus vidas positivamente.</strong>
                         </em>
-                    </p>
-                </div>
+                        </p>
+                    </div>
 
-
-                </a>
-
-
-                        <!-- pop / inicio de sesión -->
-                        <div class="login-screen">
-                            <div class="view">
-                                <div class="page">
-                                    <div class="page-content login-screen-content">
-                                        <div class="login-screen-title">
-                                            <img src="img/logo01.png">
-                                        </div>
-                                        <form>
-                                            <div class="list">
-                                                <ul>
-                                                    <li class="item-content item-input">
-                                                        <div class="item-inner">
-                                                            <div class="item-title item-label">Email</div>
-                                                            <div class="item-input-wrap">
-                                                                <input type="email" id="loginEmail" name="loginEmail"
-                                                                    placeholder="Ingresa tu E-mail">
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li class="item-content item-input">
-                                                        <div class="item-inner">
-                                                            <div class="item-title item-label">Contraseña</div>
-                                                            <div class="item-input-wrap">
-                                                                <input type="password" id="loginPass" name="loginPass"
-                                                                    placeholder="Ingresa tu Contraseña">
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-15"></div>
-                                                <div class="col-70">
-                                                    <a class="col button button-raised button-fill button-round login-screen-close open-preloader" id="btnLogin">
-                                                        INICIAR SESIÓN
-                                                    </a>
-                                                </div>
-                                                <div class="col-15"></div>
-                                            </div>
-                                            <br>
-                                            <!-- msj de error, registro y volver atras -->
-                                            <div class="block-footer">
-                                                <p>
-                                                    <a href="/registracion/" data-view=".page-content" class="link login-screen-close">
-                                                        <em><strong>Si aun no tenes una cuenta, Registrate aqui</strong></em>
-                                                    </a>
-                                                </p>
-                                                <p>
-                                                    <a class="link login-screen-close" href="#">
-                                                        VOLVER A LA PÁGINA PRINCIPAL
-                                                    </a>
-                                                </p>
-                                            </div>
-                                        </form>
+                    <!-- pop / inicio de sesión -->
+                    <div class="login-screen">
+                        <div class="view">
+                            <div class="page">
+                                <div class="page-content login-screen-content">
+                                    <div class="login-screen-title">
+                                        <img src="img/logo01.png">
                                     </div>
+                                    <form>
+                                        <div class="list">
+                                            <ul>
+                                                <li class="item-content item-input">
+                                                    <div class="item-inner">
+                                                        <div class="item-title item-label">Email</div>
+                                                        <div class="item-input-wrap">
+                                                            <input type="email" id="loginEmail" name="loginEmail"
+                                                                placeholder="Ingresa tu E-mail">
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="item-content item-input">
+                                                    <div class="item-inner">
+                                                        <div class="item-title item-label">Contraseña</div>
+                                                        <div class="item-input-wrap">
+                                                            <input type="password" id="loginPass" name="loginPass"
+                                                                placeholder="Ingresa tu Contraseña">
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-15"></div>
+                                            <div class="col-70">
+                                                <a class="col button button-raised button-fill button-round login-screen-close open-preloader"
+                                                    id="btnLogin">
+                                                    INICIAR SESIÓN
+                                                </a>
+                                            </div>
+                                            <div class="col-15"></div>
+                                        </div>
+                                        <br>
+                                        <!-- msj de error, registro y volver atras -->
+                                        <div class="block-footer">
+                                            <p>
+                                                <a href="/registracion/" data-view=".page-content"
+                                                    class="link login-screen-close">
+                                                    <em><strong>Si aun no tenes una cuenta, Registrate
+                                                            aqui</strong></em>
+                                                </a>
+                                            </p>
+                                            <p>
+                                                <a class="link login-screen-close" href="#">
+                                                    VOLVER A LA PÁGINA PRINCIPAL
+                                                </a>
+                                            </p>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -201,4 +199,5 @@
     <script type="text/javascript" src="js/my-app.js"></script>
 
 </body>
+
 </html>

@@ -43,20 +43,20 @@ var app = new Framework7({
       {
         path: '/info/',
         url: 'info.html',
+      }, 
+      {
+        path: '/org/',
+        url: 'org.html',
       }
     ]
   });
-
 
 //////////////////////////////////////////////////////////////////////////////////////////
 //    ALGUNAS VARIABLES GENERALES QUE SE USAN FRECUENTEMENTE EN ESTE ARCHIVO JS
 //////////////////////////////////////////////////////////////////////////////////////////
 var mainView = app.views.create('.view-main');
 var test = 1;
-var Argentina = "Argentina";
 var email,password, nombre, apellido, latitud, longitud, platform, pos, icon;
-//var provinciaOrg, ciudadOrg, direccionOrg;
-//var direccionHere = `${direccionOrg}, ${ciudadOrg}, ${provinciaOrg}`;
 
 
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -64,6 +64,7 @@ var email,password, nombre, apellido, latitud, longitud, platform, pos, icon;
 //////////////////////////////////////////////////////////////////////////////////////////
 $$(document).on('deviceready', function() {
     mostrar("Device is ready!");
+
 
     /////////////////////////////////////////////////
     //        Cordova-Plugin-Geolocation
@@ -73,9 +74,8 @@ $$(document).on('deviceready', function() {
     //  coordenadas GPS actuales
     /////////////////////////////////////////////////
     var onSuccess = function(position) {
-      latitud = position.coords.latitude;
-      longitud = position.coords.longitude;
-      
+        latitud = position.coords.latitude;
+        longitud = position.coords.longitude;
       /*
       alert('Latitude: '          + position.coords.latitude          + '\n' +
             'Longitude: '         + position.coords.longitude         + '\n' +
@@ -87,16 +87,12 @@ $$(document).on('deviceready', function() {
             'Timestamp: '         + position.timestamp                + '\n');
       */
     };
-
     // onError Callback receives a PositionError object
     function onError(error) {
-      alert('code: '    + error.code    + '\n' +
-            'message: ' + error.message + '\n');
+        alert('code: '    + error.code    + '\n' +
+              'message: ' + error.message + '\n');
     }
-
     navigator.geolocation.getCurrentPosition(onSuccess, onError);
-
-
 
 /////////////////////////////////////////////////
 //     HERE MAPAS
@@ -104,7 +100,7 @@ $$(document).on('deviceready', function() {
 /////////////////////////////////////////////////
     //Initialize the Platform object
     platform = new H.service.Platform({
-      'apikey': 'VNoQVAe8GbbiSpXAgfN7dRf8iLfVkWYQwN2_o8wvThQ'
+        'apikey': 'VNoQVAe8GbbiSpXAgfN7dRf8iLfVkWYQwN2_o8wvThQ'
     });
 
 });
@@ -117,10 +113,10 @@ $$(document).on('page:init', function (e) {
     mostrar(e);
 // Preloader
     $$('.open-preloader').on('click', function () {
-      app.dialog.preloader();
-      setTimeout(function () {
-        app.dialog.close();
-      }, 4000);
+        app.dialog.preloader();
+        setTimeout(function () {
+            app.dialog.close();
+        }, 4000);
     });
 });
 
@@ -130,19 +126,23 @@ $$(document).on('page:init', function (e) {
 $$(document).on('page:init', '.page[data-name="index"]', function (e) {
     mostrar("pantalla index");
     $$('#btnLogin').on('click', fnLogin);
+// velocidad de las imagenes del slider en el index
+    var mySwiper = new Swiper('.swiper-container', {
+      autoplay: {
+        delay: 5000,
+      },
+    });
 });
 
 //////////////////////////////////////////////////////////////////////////////////////////
-//    REGISTRACION DE USUARIOS Y ORGS
+//    REGISTRACION DE USUARIOS
 //////////////////////////////////////////////////////////////////////////////////////////
 $$(document).on('page:init', '.page[data-name="registracion"]', function (e) {
     mostrar("pantalla de registracion");
 
-    $$('#btnFinRegUsuario').on('click', fnRegistroUsuario);
-    $$('#btnFinRegUsuario').on('click', guarDatoUsuario);
+    $$('#btnReg').on('click', registroUsuario);
+    $$('#btnReg').on('click', guarDatoUsuario);
 
-    $$('#btnFinRegOrg').on('click', fnRegistroOrg);
-    $$('#btnFinRegOrg').on('click', guarDatoOrg);
 });
 
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -150,13 +150,7 @@ $$(document).on('page:init', '.page[data-name="registracion"]', function (e) {
 //////////////////////////////////////////////////////////////////////////////////////////
 $$(document).on('page:init', '.page[data-name="perfil"]', function (e) {
     mostrar("pantalla del perfil de usuario");
-    /*
-    perFoto
-    btnGal
-    btnCam
-    */
-    $$('#btnGal').on('click', fnGaleria);
-    $$('#btnGam').on('click', fnGamara);
+    
 });
 
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -166,98 +160,195 @@ $$(document).on('page:init', '.page[data-name="mapa"]', function (e) {
     mostrar("pantalla del mapa");
 
 /////////////////////////////////////////////////
-//    HERE MAPS
+//    HERE MAPS - MOSTRAR UBIACION EN EL MAPA
 /////////////////////////////////////////////////
-    // Obtenga los tipos de mapas predeterminados del objeto de plataforma:
+// Obtenga los tipos de mapas predeterminados del objeto de plataforma:
     var defaultLayers = platform.createDefaultLayers();
-    //  CREANDO EL OBJETO MAPA
-    // marca UBICACION EN EL MAPA
-    // Crea una instancia (y muestra) un objeto de mapa:
+//  CREANDO EL OBJETO MAPA
+// marca UBICACION EN EL MAPA
+// Crea una instancia (y muestra) un objeto de mapa:
     var map = new H.Map(
     document.getElementById('mapContainer'),
     defaultLayers.vector.normal.map,
     {
       zoom: 12,
-      center: { lat: latitud, lng: longitud }
+      center: { lat: latitud, lng: longitud },
     });
+
+  // Define a variable holding SVG mark-up that defines an animated icon image:
+    var animatedSvg =
+    '<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" ' + 
+    'y="0px" style="margin:-112px 0 0 -32px" width="136px"' + 
+    'height="150px" viewBox="0 0 136 150"><ellipse fill="#000" ' +
+    'cx="32" cy="128" rx="36" ry="4"><animate attributeName="cx" ' + 
+    'from="32" to="32" begin="0s" dur="1.5s" values="96;32;96" ' + 
+    'keySplines=".6 .1 .8 .1; .1 .8 .1 1" keyTimes="0;0.4;1"' + 
+    'calcMode="spline" repeatCount="indefinite"/>' +    
+    '<animate attributeName="rx" from="36" to="36" begin="0s"' +
+    'dur="1.5s" values="36;10;36" keySplines=".6 .0 .8 .0; .0 .8 .0 1"' + 
+    'keyTimes="0;0.4;1" calcMode="spline" repeatCount="indefinite"/>' +
+    '<animate attributeName="opacity" from=".2" to=".2"  begin="0s" ' +
+    ' dur="1.5s" values=".1;.7;.1" keySplines=" .6.0 .8 .0; .0 .8 .0 1" ' +
+    'keyTimes=" 0;0.4;1" calcMode="spline" ' +
+    'repeatCount="indefinite"/></ellipse><ellipse fill="#1b468d" ' +
+    'cx="26" cy="20" rx="16" ry="12"><animate attributeName="cy" ' +
+    'from="20" to="20" begin="0s" dur="1.5s" values="20;112;20" ' +
+    'keySplines=".6 .1 .8 .1; .1 .8 .1 1" keyTimes=" 0;0.4;1" ' +
+    'calcMode="spline" repeatCount="indefinite"/> ' +
+    '<animate attributeName="ry" from="16" to="16" begin="0s" ' + 
+    'dur="1.5s" values="16;12;16" keySplines=".6 .0 .8 .0; .0 .8 .0 1" ' +
+    'keyTimes="0;0.4;1" calcMode="spline" ' +
+    'repeatCount="indefinite"/></ellipse></svg>';
+
+    // Create an icon object, an object with geographic coordinates and a marker:
+    var icon = new H.map.DomIcon(animatedSvg);
     coords = { lat: latitud, lng: longitud },
-    marker = new H.map.Marker(coords);
+    //marker = new H.map.Marker(coords, {icon: icon}); 5-12-2020
 
-    ////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////
-    //  Tomar de los formularios de registro la direccion 
-    //  para mostrar en el mapa la ubicacion
-    ////////////////////////////////////////////////////////
-    // Obtenga una instancia del servicio de codificación geográfica:
-    var service = platform.getSearchService();
-    // Llame al método de geocodificación con los parámetros de geocodificación,
-    // la devolución de llamada y una función de devolución de llamada de error 
-    //(llamada si ocurre un error de comunicación):
-    service.geocode({
-      q: 'Ntra Sra del Buen Viaje 900, B1708ECR Morón, Provincia de Buenos Aires'
-    }, (result) => {
-      // Add a marker for each location found
-      result.items.forEach((item) => {
-    
-        console.log("item:" + JSON.stringify(item.position) );
-        pos = item.position;
-        map.addObject(new H.map.Marker(item.position));
-    
-    // {"lat":-34.60826,"lng":-58.37078}
-        latitud = item.position.lat;
-        longitud = item.position.lng;
-    
-        map.setCenter(item.position);
-    
-    
-    
-      });
-    }, alert);
-    
+    marker = new H.map.DomMarker(coords, {icon: icon});
 
-
-    ////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////
-
+    // Set map center and zoom, add the marker to the map: 
+    //map.setZoom(18); 5-12-2020
+  
     // Agregue el marcador al mapa y centre el mapa en la ubicación del marcador:
     map.addObject(marker);
     map.setCenter(coords);
 
-    // BURBUJA DE INFORMACION en la zona en donde esta el usuario
-    // Cree un objeto de burbuja de información en una ubicación geográfica específica:
-    var bubble = new H.ui.InfoBubble({ lat: latitud, lng: longitud }, {
-      content: '<b>Estas Aqui! Y esta es tu zona de influencia</b>'
-    });
 
-    // Cree un icono de marcador a partir de la URL de una imagen:
-    icon = new H.map.Icon('img/logoSamllWhite.png');
-    // Cree un marcador utilizando el icono instanciado previamente:
-    var marker = new H.map.Marker({ lat: latitud, lng: longitud }, { icon: icon });
-    // Agrega el marcador al mapa:
-    map.addObject(marker);
 
-    // Configuracion del LENGUAJE DEL MAPA
-    // Cree la interfaz de usuario predeterminada:
+    
+/////////////////////////////////////////////////
+//    HERE MAPS - INTERFAZ DE USUARIO
+/////////////////////////////////////////////////
+// BURBUJA DE INFORMACION en la zona en donde esta el usuario
+// Cree un objeto de burbuja de información en una ubicación geográfica específica:
+var bubble = new H.ui.InfoBubble({ lat: latitud, lng: longitud }, {
+  content: '<em>Esta es tu zona de influencia</em>'
+});
+// Configuracion del LENGUAJE DEL MAPA
+// Cree la interfaz de usuario predeterminada:
     var ui = H.ui.UI.createDefault(map, defaultLayers, 'es-ES');
-    // Agregue un cuadro de información a la interfaz de usuario:
+// Agregue un cuadro de información a la interfaz de usuario:
     ui.addBubble(bubble);
-
-    // Se agrega funcionalidades: tactil/mouse (EVENTOS EN EL MAPA)
-    // Habilite el sistema de eventos en la instancia del mapa:
+// Se agrega funcionalidades: tactil/mouse (EVENTOS EN EL MAPA)
+// Habilite el sistema de eventos en la instancia del mapa:
     var mapEvents = new H.mapevents.MapEvents(map);
-    // Agregar detector de eventos:
+// Agregar detector de eventos:
     map.addEventListener('tap', function(evt) {
-    // Registre eventos de 'tap' y 'mouse':
+// Registre eventos de 'tap' y 'mouse':
     console.log(evt.type, evt.currentPointer.type); 
     });
-    // Cree una instancia del comportamiento predeterminado, proporcionando el objeto mapEvents:
+// Cree una instancia del comportamiento predeterminado, proporcionando el objeto mapEvents:
     var behavior = new H.mapevents.Behavior(mapEvents);
-
-    // Creacion de una CODIFICACION GEOGRAFICA que pinta un CIRCULO en la zona de influencia
-    // Cree una instancia de un objeto de círculo (usando el estilo predeterminado):
+// Creacion de una CODIFICACION GEOGRAFICA que pinta un CIRCULO en la zona de influencia
+// Cree una instancia de un objeto de círculo (usando el estilo predeterminado):
     var circle = new H.map.Circle({lat: latitud, lng: longitud}, 8000);
-    // Agrega el círculo al mapa:
+// Agrega el círculo al mapa:
     map.addObject(circle);
+
+
+/////////////////////////////////////////////////
+//    HERE MAPS - Agregando 2 comedores al mapa
+/////////////////////////////////////////////////
+    //var ccurdeMarker = new H.map.Marker({lat:-34.650839, lng:-58.704216});
+    //map.addObject(ccurdeMarker);
+  
+    //var cdjlcMarker = new H.map.Marker({lat:-34.625248, lng:-58.665604});
+    //map.addObject(cdjlcMarker);
+
+
+
+/////////////////////////////////////////////////
+//    HERE MAPS - Abrir una burbuja de información con un clic del mouse
+/////////////////////////////////////////////////
+  //Crea un nuevo marcador y lo agrega a un grupo
+  //@param {H.map.Group} group El grupo que tiene el nuevo marcador
+  //@param {H.geo.Point} coordenada La ubicación del marcador
+  //@param {String} html Datos asociados con el marcador
+  function addMarkerToGroup(group, coordinate, html) {
+    var marker = new H.map.Marker(coordinate);
+    // agrega datos personalizados al marcador
+    marker.setData(html);
+    group.addObject(marker);
+  }
+  //Agregue dos marcadores que muestren la posición.
+  //Al hacer clic en un marcador, se abre una burbuja de información que contiene contenido HTML relacionado con el marcador.
+  //@param {H.Map} map Una instancia de HERE Map dentro de la aplicación
+  function addInfoBubble(map) {
+    var group = new H.map.Group();
+  
+    map.addObject(group);
+  // agregue el detector de eventos 'tap', que abre la burbuja de información, al grupo
+    group.addEventListener('tap', function (evt) {
+  // el objetivo del evento es el marcador en sí, el grupo es un objetivo del evento principal
+  // para todos los objetos que contiene
+    var bubble =  new H.ui.InfoBubble(evt.target.getGeometry(), {
+  // leer datos personalizados
+    content: evt.target.getData()
+    });
+  // mostrar burbuja de información
+  ui.addBubble(bubble);
+  }, false);
+  //Comedor Comunitario Un Rayito de Esperanza
+  addMarkerToGroup(group, {lat:-34.650839, lng:-58.704216},
+    '<div class="block"><p><a href="/org/" data-view=".page-content">' +
+    '<em><strong>Comedor Comunitario Un Rayito de Esperanza</strong></em></a></p>' +
+    '</div>');
+  //Divino Niño Jesús
+  addMarkerToGroup(group, {lat:-34.637941, lng:-58.637422},
+    '<div class="block"><p><a href="/org/" data-view=".page-content">' +
+    '<em><strong>Divino Niño Jesús</strong></em></a></p>' +
+    '</div>');
+  }
+  addInfoBubble(map);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/////////////////////////////////////////////////
+//    HERE MAPS - Agrupacion
+/////////////////////////////////////////////////
+var dataPoints = [];
+  dataPoints.push(new H.clustering.DataPoint(51.01, 0.01));
+  dataPoints.push(new H.clustering.DataPoint(50.04, 1.01));
+  dataPoints.push(new H.clustering.DataPoint(51.45, 1.01));
+  dataPoints.push(new H.clustering.DataPoint(51.01, 2.01));
+
+  
+
+/**
+ * 'dataPoints' y 'map' están inicializado y disponible, se crea un proveedor de datos:
+ */
+var clusteredDataProvider = new H.clustering.Provider(dataPoints, {
+  min: 1,
+  max: 10,
+  clusteringOptions: {
+    eps: 32,
+    minWeight: 2
+  }
+});
+
+// Se crea una capa que incluya el proveedor de datos y sus puntos de datos:
+var layer = new H.map.layer.ObjectLayer(clusteredDataProvider);
+
+// Agrego la capa al mapa:
+map.addLayer(layer);
+
 });
 
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -317,21 +408,31 @@ function fnLogin() {
 /////////////////////////////////
 //    REGISTRO DE USUARIOS
 /////////////////////////////////
-function fnRegistroUsuario() {
-  email = $$('#emailUsuario').val();
-  password = $$('#apellidoUsuario').val();
+function registroUsuario() {
+  email = $$('#regEmail').val();
+  password = $$('#regPass').val();
   mostrar('email: '+ email);
   mostrar('password: '+ password);
   
   firebase.auth().createUserWithEmailAndPassword(email, password)
   .then( function() {
-    mainView.router.navigate("/mapa/");
+    mainView.router.navigate("/index/");
   })
   .catch(function(error) {
     // Handle Errors here.
     var errorCode = error.code;
     var errorMessage = error.message;
-    // ...
+    var toastWithCallback = app.toast.create({
+      text: errorCode,
+      closeButton: true,
+      on: {
+        close: function () {
+          app.dialog.alert(errorMessage);
+        },
+      }
+    });
+    //Llamo a toastWithCallback para mostrar en pantalla los el código y mensaje de error
+    toastWithCallback.open();
   });
 }
 
@@ -341,21 +442,22 @@ function guarDatoUsuario() {
   var colUsuarios = db.collection('Usuarios');
 //CONSTRUYENDO LA BASE DE DATOS EN FIRESTORE
   claveDeColleccion = email;
-    email = $$('#emailUsuario').val();
-    password = $$('#passUsuario').val();
-    nombre = $$('#nombreUsuario').val();
-    apellido = $$('#apellidoUsuario').val();
-    telefono = $$('#telUsuario').val();
-    provincia = $$('#provinciaUsuario').val();
-    ciudad = $$('#ciudadUsuario').val();
-    direccion = $$('#direcUsuario').val();
-
+    email = $$('#regEmail').val();
+    password = $$('#regPass').val();
+    nombre = $$('#regNombre').val();
+    apellido = $$('#regApellido').val();
+    telefono = $$('#regTel').val();
+    pais = $$('#regPais').val();
+    provincia = $$('#regProvincia').val();
+    ciudad = $$('#regCiudad').val();
+    direccion = $$('#regDirec').val();
     datos = {
       email: email,
       password: password,
       nombre: nombre,
       apellido: apellido,
       telefono: telefono,
+      pais: pais,
       provincia: provincia,
       ciudad: ciudad,
       direccion: direccion,
@@ -368,65 +470,3 @@ function guarDatoUsuario() {
     });
 
 }
-
-/////////////////////////////////
-// REGISTRO DE ORGANIZACIONES
-/////////////////////////////////
-function fnRegistroOrg() {
-  email = $$('#emailOrg').val();
-  password = $$('#passOrg').val();
-  mostrar('email: '+ email);
-  mostrar('password: '+ password);
-  
-  firebase.auth().createUserWithEmailAndPassword(email, password)
-  .then( function() {
-    mainView.router.navigate("/mapa/");
-  })
-  .catch(function(error) {
-    // Handle Errors here.
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    // ...
-  });
-}  
-
-
-function guarDatoOrg() {
-//Funcion de inicializacion y creacion de base de datos
-  var db = firebase.firestore();
-  var colOrganizaciones = db.collection('Organizaciones');
-//CONSTRUYENDO LA BASE DE DATOS EN FIRESTORE
-  claveDeColleccion = email;
-    email = $$('#emailOrg').val();
-    password = $$('#passOrg').val();
-    nombre = $$('#nombreOrg').val();
-    contacto = $$('#contactoOrg').val();
-    telefono = $$('#telOrg').val();
-    provincia = $$('#provinciaOrg').val();
-    ciudad = $$('#ciudadOrg').val();
-    direccion = $$('#direcOrg').val();
-    facebook = $$('#faceOrg').val();
-    whatsapp = $$('#whatsOrg').val();
-    mercadopago = $$('#mepaOrg').val();
-
-    datos = {
-      email: email,
-      password: password,
-      nombre: nombre,
-      contacto: contacto,
-      telefono: telefono,
-      provincia: provincia,
-      ciudad: ciudad,
-      direccion: direccion,
-      facebook: facebook,
-      whatsapp: whatsapp,
-      mercadopago: mercadopago,
-      latitud: latitud,
-      longitud: longitud
-    };
-
-  colOrganizaciones.doc(claveDeColleccion).set(datos)
-    .catch(function (e) {
-    });
-}
-
