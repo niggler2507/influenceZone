@@ -45,8 +45,8 @@ var app = new Framework7({
         url: 'info.html',
       }, 
       {
-        path: '/org/',
-        url: 'org.html',
+        path: '/ong/',
+        url: 'ong.html',
       }
     ]
   });
@@ -56,7 +56,86 @@ var app = new Framework7({
 //////////////////////////////////////////////////////////////////////////////////////////
 var mainView = app.views.create('.view-main');
 var test = 1;
-var email,password, nombre, apellido, latitud, longitud, platform, pos, icon;
+var platform, pos, icon, mySwiper;
+var email,password, nombre, apellido, telefono, pais, provincia, ciudad, direccion, latitud, longitud; 
+var emailOng, nombreOng, contactoOng, telefonoOng, direccionOng;
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////
+// 
+//////////////////////////////////////////////////////////////////////////////////////////
+// DOM events for my-sheet sheet
+$$('.my-sheet').on('sheet:open', function (e) {
+  console.log('my-sheet open');
+});
+$$('.my-sheet').on('sheet:opened', function (e) {
+  console.log('my-sheet opened');
+});
+
+// Create dynamic Sheet
+var dynamicSheet = app.sheet.create({
+  content: '<div class="sheet-modal">'+
+              '<div class="toolbar">'+
+                '<div class="toolbar-inner">'+
+                  '<div class="left"></div>'+
+                  '<div class="right">'+
+                    '<a class="link sheet-close">Done</a>'+
+                  '</div>'+
+                '</div>'+
+              '</div>'+
+              '<div class="sheet-modal-inner">'+
+                '<div class="block">'+
+                  '<p>Sheet created dynamically.</p>'+
+                  '<p><a href="#" class="link sheet-close">Close me</a></p>'+
+                '</div>'+
+              '</div>'+
+            '</div>',
+  // Events
+  on: {
+    open: function (sheet) {
+      console.log('Sheet open');
+    },
+    opened: function (sheet) {
+      console.log('Sheet opened');
+    },
+  }
+});
+// Events also can be assigned on instance later
+dynamicSheet.on('close', function (sheet) {
+  console.log('Sheet close');
+});
+dynamicSheet.on('closed', function (sheet) {
+  console.log('Sheet closed');
+});
+
+// Open dynamic sheet
+$$('.dynamic-sheet').on('click', function () {
+  // Close inline sheet before
+  app.sheet.close('.my-sheet');
+
+  // Open dynamic sheet
+  dynamicSheet.open();
+});
+
+// Create swipe-to-close Sheet
+app.sheet.create({
+  el: '.my-sheet-swipe-to-close',
+  swipeToClose: true,
+  backdrop: true,
+});
+// Create swipe-to-step Sheet
+app.sheet.create({
+  el: '.my-sheet-swipe-to-step',
+  swipeToClose: true,
+  swipeToStep: true,
+  backdrop: true,
+});
+//////////////////////////////////////////////////////////////////////////////////////////
+// 
+//////////////////////////////////////////////////////////////////////////////////////////
+
+
 
 
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -118,6 +197,13 @@ $$(document).on('page:init', function (e) {
             app.dialog.close();
         }, 4000);
     });
+// velocidad de las imagenes del slider en el index
+    mySwiper = new Swiper('.swiper-container', {
+      autoplay: {
+        delay: 5000,
+      },
+    });
+
 });
 
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -126,12 +212,7 @@ $$(document).on('page:init', function (e) {
 $$(document).on('page:init', '.page[data-name="index"]', function (e) {
     mostrar("pantalla index");
     $$('#btnLogin').on('click', fnLogin);
-// velocidad de las imagenes del slider en el index
-    var mySwiper = new Swiper('.swiper-container', {
-      autoplay: {
-        delay: 5000,
-      },
-    });
+    
 });
 
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -142,6 +223,7 @@ $$(document).on('page:init', '.page[data-name="registracion"]', function (e) {
 
     $$('#btnReg').on('click', registroUsuario);
     $$('#btnReg').on('click', guarDatoUsuario);
+    $$('#btnRegOng').on('click', guarDatoOng);
 
 });
 
@@ -291,32 +373,16 @@ var bubble = new H.ui.InfoBubble({ lat: latitud, lng: longitud }, {
   }, false);
   //Comedor Comunitario Un Rayito de Esperanza
   addMarkerToGroup(group, {lat:-34.650839, lng:-58.704216},
-    '<div class="block"><p><a href="/org/" data-view=".page-content">' +
+    '<div class="block"><p><a href="/ong/" data-view=".page-content">' +
     '<em><strong>Comedor Comunitario Un Rayito de Esperanza</strong></em></a></p>' +
     '</div>');
   //Divino Niño Jesús
   addMarkerToGroup(group, {lat:-34.637941, lng:-58.637422},
-    '<div class="block"><p><a href="/org/" data-view=".page-content">' +
+    '<div class="block"><p><a href="/ong/" data-view=".page-content">' +
     '<em><strong>Divino Niño Jesús</strong></em></a></p>' +
     '</div>');
   }
   addInfoBubble(map);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -358,6 +424,14 @@ $$(document).on('page:init', '.page[data-name="info"]', function (e) {
     mostrar("pantalla de info de la app");
 });
 
+
+//////////////////////////////////////////////////////////////////////////////////////////
+//    PERFIL DE LA ONG
+//////////////////////////////////////////////////////////////////////////////////////////
+$$(document).on('page:init', '.page[data-name="ong"]', function (e) {
+  mostrar("pantalla del perfil de usuario");
+  
+});
 
 
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -469,4 +543,32 @@ function guarDatoUsuario() {
     .catch(function(e) {
     });
 
+}
+
+function guarDatoOng() {
+//Funcion de inicializacion y creacion de base de datos
+  var db = firebase.firestore();
+  var colOrganizaciones = db.collection('Organizaciones');
+//CONSTRUYENDO LA BASE DE DATOS EN FIRESTORE
+  claveColleccion = emailOng;
+    emailOng = $$('#regEmailOng').val();
+    nombreOng = $$('#regNombreOng').val();
+    contactoOng = $$('#regContactoOng').val();
+    telefonoOng = $$('#regTelOng').val();
+    direccionOng = $$('#regDirecOng').val();
+    //latitudOng = ;
+    //longitudOng = ;
+    datos = {
+      email: emailOng,
+      nombre: nombreOng,
+      contacto: contactoOng,
+      telefono: telefonoOng,
+      direccion: direccionOng,
+      //latitud: latitudOng,
+      //longitud: longitudOng
+    };
+
+  colOrganizaciones.doc(claveColleccion).set(datos)
+    .catch(function(e) {
+    });
 }

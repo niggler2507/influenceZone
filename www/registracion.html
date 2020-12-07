@@ -11,7 +11,7 @@
             <span class="if-not-md">Back</span>
             </a>
         </div>
-        <div class="title">Registro</div>
+        <div class="title"></div>
         </div>
     </div>
 
@@ -21,14 +21,19 @@
     <!-- Primera Card para el registro de USUARIOS -->
     <div class="card card-expandable hide-navbar-on-scroll">
         <div class="card-content">
-            <div class="bg-color-primary" style="height: 300px">
-                <div class="card-header text-color-white display-block">
+            <div class="bg-color-white" style="height: 300px">
+                <div class="card-header text-color-primary display-block">
                     <strong>Usuario</strong><br>
                     <small style="opacity: 0.7">para <em>hacer</em> Donaciones</small>
                 </div>
-                <a href="#" class="link card-close card-opened-fade-in color-white" style="position: absolute; right: 15px; top: 15px">
+                <a href="#" class="link card-close card-opened-fade-in color-primary" style="position: absolute; right: 15px; top: 15px">
                     <i class="icon f7-icons">xmark_circle_fill</i>
                 </a>
+                <div class="block">
+                    <p class="text-color-primary">
+                        <em>Podras hacer Donaciones o ofrecerte como Voluntario</em>
+                    </p>
+                </div>
             </div>
             <div class="card-content-padding">
                 <form class="list" id="my-form-user">
@@ -131,5 +136,85 @@
             </div>
         </div>
     </div>
+
+    <!-- Segunda Card para el registro de ONG -->
+    <div class="card card-expandable hide-navbar-on-scroll">
+        <div class="card-content">
+            <div class="bg-color-primary" style="height: 300px">
+                <div class="card-header text-color-white display-block">
+                    <strong>ONG</strong><br>
+                    <small style="opacity: 0.7">para <em>hacer</em> Donaciones</small>
+                </div>
+                <a href="#" class="link card-close card-opened-fade-in color-white" style="position: absolute; right: 15px; top: 15px">
+                    <i class="icon f7-icons">xmark_circle_fill</i>
+                </a>
+                <div class="block">
+                    <p class="text-color-white">
+                        <em>Desde aqui podes registrar ONG para que sean visibles en esta app Inluence Zone</em>
+                    </p>
+                </div>
+            </div>
+            <div class="card-content-padding">
+                <form class="list" id="my-form-ong">
+                    <ul>
+                        <li>
+                            <div class="item-content item-input">
+                                <div class="item-inner">
+                                    <div class="item-title item-label">Nombre de la ONG</div>
+                                    <div class="item-input-wrap">
+                                        <input type="text" id="regNombreOng" name="regNombreOng" placeholder="Ingresa el Nombre de la ONG" required validate>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content item-input">
+                                <div class="item-inner">
+                                    <div class="item-title item-label">Contacto en la ONG</div>
+                                    <div class="item-input-wrap">
+                                        <input type="text" id="regContactoOng" name="regContcatoOng" placeholder="Ingresa nombre de un Contacto" required validate>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content item-input">
+                                <div class="item-inner">
+                                    <div class="item-title item-label">Email</div>
+                                    <div class="item-input-wrap">
+                                        <input type="email" id="regEmailOng" name="regEmailOng" placeholder="Ingresa Email de la ONG" required validate>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content item-input">
+                                <div class="item-inner">
+                                    <div class="item-title item-label">Telefono</div>
+                                    <div class="item-input-wrap">
+                                        <input type="text" pattern="[0-9]*" id="regTelOng" data-error-message="Solo numeros porfavor!" name="regTelOng" placeholder="Ingresa Telefono de la ONG" required validate>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content item-input">
+                                <div class="item-inner">
+                                    <div class="item-title item-label">Dirección</div>
+                                    <div class="item-input-wrap">
+                                        <input type="text" id="regDirecOng" name="regDirecOng" placeholder="Ingresa la Dirección, Calle, Numero, Ciudad, Provincia" required validate>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </form>
+                <div class="block block-strong row">
+                    <div class="col"><a class="button" id="btnRegOng"><em>REGISTRAR ONG</em></a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
 </div>
