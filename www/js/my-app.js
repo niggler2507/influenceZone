@@ -60,6 +60,13 @@ var platform, pos, icon;
 var email,password, nombre, apellido, telefono, pais, provincia, ciudad, direccion, latitud, longitud; 
 var emailOng, nombreOng, contactoOng, telefonoOng, direccionOng;
 
+
+//////////////////////////////////////////////////////////////////////////////////////////
+//    MERCADO PAGO
+//////////////////////////////////////////////////////////////////////////////////////////
+//window.Mercadopago.setPublishableKey("APP_USR-7855476531711397-120720-77e167e074d4d2fadbdf147eb87f473b-125834739");
+
+
 //////////////////////////////////////////////////////////////////////////////////////////
 //    APP INICIALIZADA
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -352,6 +359,37 @@ $$(document).on('page:init', '.page[data-name="info"]', function (e) {
 //////////////////////////////////////////////////////////////////////////////////////////
 $$(document).on('page:init', '.page[data-name="ong"]', function (e) {
   mostrar("pantalla del perfil de usuario");
+/*
+//////////////////////////////////////////////////////////////////////////////////////////
+//    MERCADO PAGO
+//////////////////////////////////////////////////////////////////////////////////////////
+// SDK de Mercado Pago
+const mercadopago = require ('mercadopago');
+
+// Agrega credenciales
+mercadopago.configure({
+  access_token: 'APP_USR-7855476531711397-120720-77e167e074d4d2fadbdf147eb87f473b-125834739'
+});
+
+// Crea un objeto de preferencia
+let preference = {
+  items: [
+    {
+      title: 'Donar',
+      unit_price: 100,
+      quantity: 1,
+    }
+  ]
+};
+
+mercadopago.preferences.create(preference)
+.then(function(response){
+// Este valor reemplazará el string "<%= global.id %>" en tu HTML
+  global.id = response.body.id;
+}).catch(function(error){
+  console.log(error);
+});*/
+
   
 });
 
