@@ -5,7 +5,7 @@ var app = new Framework7({
     // Elemento raíz de la aplicación
     root: '#app',
     // Nombre de la aplicación
-    name: 'Influence Zone',
+    name: 'InfluenceZone',
     // App id
     id: 'com.myapp.test',
     // Habilitar el panel deslizante
@@ -56,87 +56,9 @@ var app = new Framework7({
 //////////////////////////////////////////////////////////////////////////////////////////
 var mainView = app.views.create('.view-main');
 var test = 1;
-var platform, pos, icon, mySwiper;
+var platform, pos, icon;
 var email,password, nombre, apellido, telefono, pais, provincia, ciudad, direccion, latitud, longitud; 
 var emailOng, nombreOng, contactoOng, telefonoOng, direccionOng;
-
-
-
-//////////////////////////////////////////////////////////////////////////////////////////
-// 
-//////////////////////////////////////////////////////////////////////////////////////////
-// DOM events for my-sheet sheet
-$$('.my-sheet').on('sheet:open', function (e) {
-  console.log('my-sheet open');
-});
-$$('.my-sheet').on('sheet:opened', function (e) {
-  console.log('my-sheet opened');
-});
-
-// Create dynamic Sheet
-var dynamicSheet = app.sheet.create({
-  content: '<div class="sheet-modal">'+
-              '<div class="toolbar">'+
-                '<div class="toolbar-inner">'+
-                  '<div class="left"></div>'+
-                  '<div class="right">'+
-                    '<a class="link sheet-close">Done</a>'+
-                  '</div>'+
-                '</div>'+
-              '</div>'+
-              '<div class="sheet-modal-inner">'+
-                '<div class="block">'+
-                  '<p>Sheet created dynamically.</p>'+
-                  '<p><a href="#" class="link sheet-close">Close me</a></p>'+
-                '</div>'+
-              '</div>'+
-            '</div>',
-  // Events
-  on: {
-    open: function (sheet) {
-      console.log('Sheet open');
-    },
-    opened: function (sheet) {
-      console.log('Sheet opened');
-    },
-  }
-});
-// Events also can be assigned on instance later
-dynamicSheet.on('close', function (sheet) {
-  console.log('Sheet close');
-});
-dynamicSheet.on('closed', function (sheet) {
-  console.log('Sheet closed');
-});
-
-// Open dynamic sheet
-$$('.dynamic-sheet').on('click', function () {
-  // Close inline sheet before
-  app.sheet.close('.my-sheet');
-
-  // Open dynamic sheet
-  dynamicSheet.open();
-});
-
-// Create swipe-to-close Sheet
-app.sheet.create({
-  el: '.my-sheet-swipe-to-close',
-  swipeToClose: true,
-  backdrop: true,
-});
-// Create swipe-to-step Sheet
-app.sheet.create({
-  el: '.my-sheet-swipe-to-step',
-  swipeToClose: true,
-  swipeToStep: true,
-  backdrop: true,
-});
-//////////////////////////////////////////////////////////////////////////////////////////
-// 
-//////////////////////////////////////////////////////////////////////////////////////////
-
-
-
 
 //////////////////////////////////////////////////////////////////////////////////////////
 //    APP INICIALIZADA

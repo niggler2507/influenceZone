@@ -1,5 +1,6 @@
 <!-- We don't need a full layout in this file because this page will be parsed with Ajax.  -->
-<div class="page" data-name="perfil">
+<div class="page" data-name="ong">
+
     <!-- Navbar -->
     <div class="navbar navbar-transparent">
         <div class="navbar-bg"></div>
@@ -13,17 +14,33 @@
             <div class="title">Comedor Un Rayo De Esperanza</div>
         </div>
     </div>
-    <!-- Toolbar -->
-    <div class="toolbar toolbar-bottom">
-        <div class="toolbar-inner">
-            <!-- In data-sheet attribute we specify CSS selector of sheet we need to open-->
-            <a class="button sheet-open" href="#" data-sheet=".my-sheet">Donar</a>
-            <!-- Open About Popup -->
-        <p><a class="button popup-open" href="#" data-popup=".popup-about">Ser Voluntario</a></p>
+
+    <!-- FAB Backdrop -->
+    <div class="fab-backdrop"></div>
+    <!-- Parte inferior central extendida de FAB -->
+    <div class="fab fab-extended fab-right-bottom color-primary">
+        <a href="#">
+            <i class="icon f7-icons if-not-md">plus</i>
+            <i class="icon material-icons md-only">add</i>
+            <div class="fab-text">Contacto</div>
+        </a>
+        <div class="fab-buttons fab-buttons-top">
+            <a href="http://m.me/hojadeniggler" target="_blank" class="fab-label-button link external">
+                <span>M</span>
+                <span class="fab-label">Messenger</span>
+            </a>
+            <a href="https://api.whatsapp.com/send?phone=5491161920972&text=Hola,%20me%20gustaria%20ser%20voluntario" target="_blank" class="fab-label-button link external">
+                <span>W</span>
+                <span class="fab-label">Whatsapp</span>
+            </a>
         </div>
     </div>
-<!-- Contenido de la pagina de la Organización -->
-    <div class="page-content hide-toolbar-on-scroll">
+
+
+
+
+    <!-- Contenido de la pagina de la Organización -->
+    <div class="page-content">
         <!-- Slider con imagenes de la organización -->
         <div data-pagination='{"el": ".swiper-pagination"}' data-space-between="10" data-slides-per-view="auto"
             data-centered-slides="true" class="swiper-container swiper-init demo-swiper demo-swiper-auto">
@@ -39,13 +56,13 @@
             </div>
         </div>
         <!-- Nombre de la Organización como titulo de la pagina -->
-        <div class="block">
+        <div class="block no-hairlines">
             <div class="row">
                 <div class="title pacifico text-color-primary" style="font-size: xx-large;">Comedor Comunitario Un Rayo
                     De Esperanza</div>
             </div>
             <!-- Un poco de información sobre la Organización para conocer mas de su obra -->
-            <div class="block block-strong">
+            <div class="block block-strong no-hairlines">
                 <p><strong>A NUESTRO ESPACIO !!</strong></p>
                 <p><strong>INVITAMOS A RECORRERLO, Y CONOCERNOS UN POCO MAS...</strong></p>
                 <p><em>HACIENDO MEMORIA...</em></p>
@@ -82,7 +99,7 @@
                         aquellos egoi­smos a los que a diario nos vemos sometidos.</em></p>
                 <p><strong><em>Ponemos en vos nuestra esperanza de que puedas sumarte a esta obra de bien y que tu
                             contribución nos ayude a acrecentar este sueño.</em></strong></p>
-                <div class="block">
+                <div class="block no-hairlines">
                     <div class="row">
                         <h2>Reyna Cristina Romero (Fundadora)</h2>
                         <h3>Comedor Comunitario UN RAYO DE ESPERANZA</h3>
@@ -90,45 +107,11 @@
                             <em>SON PARTE DE ESTA OBRA</em><br>
                             <em>QUE CONSTRUIMOS ENTRE TODOS</em></p>
                         <p>San Salvador 2594 (ITUZAINGO)<br>
-                            TE 5275-7086<br>
+                            TEL.: 5275-7086<br>
                             ungrupodeayuda@yahoo.com.ar</p>
                         <a class="link external" href="http://www.ungrupodeayuda.3dup.net/" alt="comedorEjemplo01">www.ungrupodeayuda.3dup.net</a>
                     </div>
                 </div>
-            </div>
-        </div>
-        <!-- Sheet para poder Donar a la Organización -->
-        <div class="sheet-modal my-sheet">
-            <div class="toolbar">
-                <div class="toolbar-inner bg-color-white">
-                    <div class="left"></div>
-                    <div class="right"><a class="link sheet-close text-color-primary" href="#">Cerrar</a></div>
-                </div>
-            </div>
-            <!-- Donar con MercadoPago -->
-            <div class="sheet-modal-inner">
-                <div class="block" style="margin: 0;">
-                    <div class="row">
-                        <div class="col">
-                            <a class="col button button-raised button-fill button-round external" href="https://mpago.la/2xSs2UX" style="margin-bottom: 3px;">Donar $100</a>
-                            <a class="col button button-raised button-fill button-round external" href="https://mpago.la/2WSW5Fa" style="margin-bottom: 3px;">Donar $250</a>
-                            <a class="col button button-raised button-fill button-round external" href="https://mpago.la/1abFagr" style="margin-bottom: 3px;">Donar $500</a>
-                            <a class="col button button-raised button-fill button-round external" href="https://mpago.la/2xF6YNv" style="margin-bottom: 3px;">Donar $1000</a>
-                            <a class="col button button-raised button-fill button-round external" href="https://mpago.la/1VbJ44q" style="margin-bottom: 3px;">Donar $1500</a>
-                    </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- para ser Voluntaio y comunicarse con la Organización -->
-        <div class="popup popup-about">
-            <div class="block">
-                <!-- Close Popup -->
-                <p><a class="link popup-close" href="#">Cerrar</a></p>
-                <!-- Redes -->
-                <h2>Contactarse</h2>
-                
-                
             </div>
         </div>
     </div>
