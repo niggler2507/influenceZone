@@ -17,36 +17,46 @@ var app = new Framework7({
 //////////////////////////////////////////////////////////////////////////////////////////
     routes: [
       {
-        path: '/',
-        url: 'index.html',
-      },
-      {
         path: '/index/',
         url: 'index.html',
+        options: {
+          transition: 'f7-circle',
+        },
       },
       {
         path: '/registracion/',
         url: 'registracion.html',
-      },
-      {
-        path: '/reg-screen/',
-        url: 'registracion.html',
+        options: {
+          transition: 'f7-cover',
+        },
       },
       {
         path: '/perfil/',
         url: 'perfil.html',
+        options: {
+          transition: 'f7-cover',
+        },
       },
       {
         path: '/mapa/',
         url: 'mapa.html',
+        options: {
+          transition: 'f7-flip',
+        },
       }, 
       {
         path: '/info/',
         url: 'info.html',
+        options: {
+          transition: 'f7-cover',
+        },
       }, 
       {
         path: '/ong/',
         url: 'ong.html',
+        options: {
+          transition: 'f7-circle',
+        },
       }
     ]
   });
@@ -102,10 +112,11 @@ $$(document).on('deviceready', function() {
     }
     navigator.geolocation.getCurrentPosition(onSuccess, onError);
 
-/////////////////////////////////////////////////
-//     HERE MAPAS
-//     Iniciamos Platform de HereMaps
-/////////////////////////////////////////////////
+    
+    /////////////////////////////////////////////////
+    //     HERE MAPAS
+    //     Iniciamos Platform de HereMaps
+    /////////////////////////////////////////////////
     //Initialize the Platform object
     platform = new H.service.Platform({
         'apikey': 'VNoQVAe8GbbiSpXAgfN7dRf8iLfVkWYQwN2_o8wvThQ'
@@ -182,7 +193,7 @@ $$(document).on('page:init', '.page[data-name="mapa"]', function (e) {
     document.getElementById('mapContainer'),
     defaultLayers.vector.normal.map,
     {
-      zoom: 12,
+      zoom: 11.5,
       center: { lat: latitud, lng: longitud },
     });
 
