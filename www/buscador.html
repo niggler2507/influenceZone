@@ -1,0 +1,73 @@
+<!-- We don't need a full layout in this file because this page will be parsed with Ajax.  -->
+<div class="page" data-name="buscador">
+    <div class="navbar navbar-transparent">
+        <div class="navbar-bg"></div>
+        <div class="navbar-inner bg-color-white">
+            <div class="left">
+                <a href="#" class="link back">
+                    <i class="icon icon-back color-primary"></i>
+                </a>
+            </div>
+        <div class="title">Buscador de ONG´s</div>
+        <div class="subnavbar">
+            <!-- Searchbar with auto init -->
+            <form class="searchbar">
+            <div class="searchbar-inner">
+                <div class="searchbar-input-wrap">
+                <input type="search" placeholder="Escribi aqui la Ong que buscas">
+                <i class="searchbar-icon"></i>
+                <span class="input-clear-button"></span>
+                </div>
+                <span class="searchbar-disable-button if-not-aurora">Cancelar</span>
+            </div>
+            </form>
+        </div>
+        </div>
+    </div>
+    <div class="page-content">
+        <!-- Searchbar backdrop -->
+        <div class="searchbar-backdrop"></div>
+        <!-- hide-on-search element -->
+        <div class="block searchbar-hide-on-search">
+        <p>En esta secciñon podras buscar cualquiera de las Ong que se encuntran cargadas en la App.</p>
+        </div>
+        <!-- search target list -->
+        <div class="list searchbar-found">
+        <ul>
+            <li class="item-content">
+            <div class="item-inner">
+                <div class="item-title">
+                    <a href="/ong/">Comedor Rayo de esperanza</a>
+                </div>
+            </div>
+            </li>
+            <li class="item-content">
+            <div class="item-inner">
+                <div class="item-title">
+                    <a href="/ong/">Hogar Divino Niño Jesus</a>
+                </div>
+            </div>
+            </li>
+            <li class="item-content">
+            <div class="item-inner">
+                <div class="item-title">
+                    <a href="/ong/">Ong de ejemplo 1</a>
+                </div>
+            </div>
+            </li>
+            ...
+            <li class="item-content">
+            <div class="item-inner">
+                <div class="item-title">
+                    <a href="/ong/">Ong de ejemplo 2</a>
+                </div>
+            </div>
+            </li>
+        </ul>
+        </div>
+        <!-- Nothing found message -->
+        <div class="block searchbar-not-found">
+        <div class="block-inner">Nothing found</div>
+        </div>
+    </div>
+</div>

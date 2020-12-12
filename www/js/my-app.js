@@ -41,7 +41,14 @@ var app = new Framework7({
         path: '/mapa/',
         url: 'mapa.html',
         options: {
-          transition: 'f7-flip',
+          transition: 'f7-cover-v',
+        },
+      }, 
+      {
+        path: '/buscador/',
+        url: 'buscador.html',
+        options: {
+          transition: 'f7-cover-v',
         },
       }, 
       {
@@ -341,7 +348,43 @@ var layer = new H.map.layer.ObjectLayer(clusteredDataProvider);
 // Agrego la capa al mapa:
 map.addLayer(layer);
 
+
+    // DOM events for About popup
+    $$('.popup-about').on('popup:open', function (e) {
+      console.log('About popup open');
+    });
+    $$('.popup-about').on('popup:opened', function (e) {
+      console.log('About popup opened');
+    });
+
+
+
+
 });
+
+
+//////////////////////////////////////////////////////////////////////////////////////////
+//    INFO DE LA APP
+//////////////////////////////////////////////////////////////////////////////////////////
+$$(document).on('page:init', '.page[data-name="buscador"]', function (e) {
+  mostrar("pantalla de busqueda de Ong");
+
+  // create searchbar
+  var searchbar = app.searchbar.create({
+    el: '.searchbar',
+    searchContainer: '.list',
+    searchIn: '.item-title',
+    on: {
+      search(sb, query, previousQuery) {
+        console.log(query, previousQuery);
+      }
+    }
+  });
+
+});
+
+
+
 
 //////////////////////////////////////////////////////////////////////////////////////////
 //    INFO DE LA APP
@@ -355,39 +398,74 @@ $$(document).on('page:init', '.page[data-name="info"]', function (e) {
 //    PERFIL DE LA ONG
 //////////////////////////////////////////////////////////////////////////////////////////
 $$(document).on('page:init', '.page[data-name="ong"]', function (e) {
-  mostrar("pantalla del perfil de usuario");
-/*
-//////////////////////////////////////////////////////////////////////////////////////////
-//    MERCADO PAGO
-//////////////////////////////////////////////////////////////////////////////////////////
-// SDK de Mercado Pago
-const mercadopago = require ('mercadopago');
+    mostrar("pantalla del perfil de usuario");
 
-// Agrega credenciales
-mercadopago.configure({
-  access_token: 'APP_USR-7855476531711397-120720-77e167e074d4d2fadbdf147eb87f473b-125834739'
-});
+    /*=== With Video ===*/
+    var myVideoBrowserPopupDark = app.photoBrowser.create({
+      photos : [
+          {
+              html: '<iframe src="../videos/video01.mp4" frameborder="0" allowfullscreen></iframe>',
+              caption: 'Video que muestra la zona en donde trabaja la Ong'
+          },
+      ],
+      theme: 'dark',
+      type: 'standalone'
+    });
+    $$('.pb-standalone-video').on('click', function () {
+      myVideoBrowserPopupDark.open();
+    });
 
-// Crea un objeto de preferencia
-let preference = {
-  items: [
-    {
-      title: 'Donar',
-      unit_price: 100,
-      quantity: 1,
-    }
-  ]
-};
+    /*=== Popup Dark ===*/
+    var myPhotoBrowserPopupDark = app.photoBrowser.create({
+      photos : [
+          'img/comedorEjemplo01/01.jpg',
+          'img/comedorEjemplo01/02.jpg',
+          'img/comedorEjemplo01/03.jpg',
+          'img/comedorEjemplo01/04.jpg',
+          'img/comedorEjemplo01/05.jpg',
+          'img/comedorEjemplo01/06.jpg',
+          'img/comedorEjemplo01/07.jpg',
+      ],
+      theme: 'dark',
+      type: 'popup'
+    });
+    $$('.pb-popup-dark').on('click', function () {
+      myPhotoBrowserPopupDark.open();
+    });
 
-mercadopago.preferences.create(preference)
-.then(function(response){
-// Este valor reemplazará el string "<%= global.id %>" en tu HTML
-  global.id = response.body.id;
-}).catch(function(error){
-  console.log(error);
-});*/
 
-  
+    /*
+    //////////////////////////////////////////////////////////////////////////////////////////
+    //    MERCADO PAGO
+    //////////////////////////////////////////////////////////////////////////////////////////
+    // SDK de Mercado Pago
+    const mercadopago = require ('mercadopago');
+
+    // Agrega credenciales
+    mercadopago.configure({
+      access_token: 'APP_USR-7855476531711397-120720-77e167e074d4d2fadbdf147eb87f473b-125834739'
+    });
+
+    // Crea un objeto de preferencia
+    let preference = {
+      items: [
+        {
+          title: 'Donar',
+          unit_price: 100,
+          quantity: 1,
+        }
+      ]
+    };
+
+    mercadopago.preferences.create(preference)
+    .then(function(response){
+    // Este valor reemplazará el string "<%= global.id %>" en tu HTML
+      global.id = response.body.id;
+    }).catch(function(error){
+      console.log(error);
+    });
+    */
+
 });
 
 

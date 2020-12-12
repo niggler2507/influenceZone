@@ -1,35 +1,42 @@
 <!-- We don't need a full layout in this file because this page will be parsed with Ajax.  -->
-<div class="page theme-dark" data-name="mapa">
-    <div class="page-content">
+<div class="page" data-name="mapa">
+    <div class="page-content" style="padding-top: 0px;">
         <!-- Logo de la App -->
         <img data-src="img/logo01.png" width="300" height="45" style="margin-top: 5px; margin-left: 20px;" class="lazy lazy-fade-in demo-lazy">
-
-
         <!-- FAB Backdrop -->
         <div class="fab-backdrop"></div>
-        <!-- Parte inferior central extendida de FAB -->
+        <!-- Parte superior derecha extendida de FAB -->
         <div class="fab fab-extended fab-right-top color-primary">
             <a href="#">
                 <i class="f7-icons">bars</i>
             </a>
             <div class="fab-buttons fab-buttons-bottom">                                                
                 <a class="fab-label-button link panel-close" href="/perfil/">
-                    <span>1</span>
+                    <span><i class="fas fa-user"></i></span>
                     <span class="fab-label">Pefil</span>
                 </a>
                 <a class="fab-label-button link panel-close" href="/info/">
-                    <span>2</span>
+                    <span><i class="fas fa-info-circle"></i></span>
                     <span class="fab-label">Info</span>
                 </a>
                 <a class="fab-label-button link panel-close" href="#">
-                    <span>3</span>
+                    <span><i class="fas fa-arrow-circle-left"></i></span>
                     <span class="fab-label">Volver</span>
                 </a>
                 <a class="fab-label-button link panel-close" href="/index/">
-                    <span>4</span>
+                    <span><i class="fas fa-times-circle"></i></span>
                     <span class="fab-label">Cerrar</span>
                 </a>
             </div>
+        </div>
+        <!-- Parte inferior izquierda de FAB -->
+        <!-- FAB Backdrop -->
+        <div class="fab-backdrop"></div>
+        <div class="fab fab-extended fab-left-bottom color-primary">
+            <a href="/buscador/">
+                <i class="fas fa-search-location"></i>
+                <div class="fab-text">Buscar Ong</div>
+            </a>
         </div>
         <!-- Mapa -->
         <div style="width: 100%; height: 87vh; margin: 0 !important; padding: 0 !important;" id="mapContainer"></div>
