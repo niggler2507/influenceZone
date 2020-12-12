@@ -66,7 +66,7 @@ var app = new Framework7({
 //////////////////////////////////////////////////////////////////////////////////////////
 var mainView = app.views.create('.view-main');
 var test = 1;
-var platform, pos, icon;
+var platform, pos;
 var email,password, nombre, apellido, telefono, pais, provincia, ciudad, direccion, latitud, longitud; 
 var emailOng, nombreOng, contactoOng, telefonoOng, direccionOng;
 
@@ -199,35 +199,23 @@ $$(document).on('page:init', '.page[data-name="mapa"]', function (e) {
 
   // Define a variable holding SVG mark-up that defines an animated icon image:
     var animatedSvg =
-    '<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" ' + 
-    'y="0px" style="margin:-112px 0 0 -32px" width="136px"' + 
-    'height="150px" viewBox="0 0 136 150"><ellipse fill="#000" ' +
-    'cx="32" cy="128" rx="36" ry="4"><animate attributeName="cx" ' + 
-    'from="32" to="32" begin="0s" dur="1.5s" values="96;32;96" ' + 
-    'keySplines=".6 .1 .8 .1; .1 .8 .1 1" keyTimes="0;0.4;1"' + 
-    'calcMode="spline" repeatCount="indefinite"/>' +    
-    '<animate attributeName="rx" from="36" to="36" begin="0s"' +
-    'dur="1.5s" values="36;10;36" keySplines=".6 .0 .8 .0; .0 .8 .0 1"' + 
-    'keyTimes="0;0.4;1" calcMode="spline" repeatCount="indefinite"/>' +
-    '<animate attributeName="opacity" from=".2" to=".2"  begin="0s" ' +
-    ' dur="1.5s" values=".1;.7;.1" keySplines=" .6.0 .8 .0; .0 .8 .0 1" ' +
-    'keyTimes=" 0;0.4;1" calcMode="spline" ' +
-    'repeatCount="indefinite"/></ellipse><ellipse fill="#1b468d" ' +
-    'cx="26" cy="20" rx="16" ry="12"><animate attributeName="cy" ' +
-    'from="20" to="20" begin="0s" dur="1.5s" values="20;112;20" ' +
-    'keySplines=".6 .1 .8 .1; .1 .8 .1 1" keyTimes=" 0;0.4;1" ' +
-    'calcMode="spline" repeatCount="indefinite"/> ' +
-    '<animate attributeName="ry" from="16" to="16" begin="0s" ' + 
-    'dur="1.5s" values="16;12;16" keySplines=".6 .0 .8 .0; .0 .8 .0 1" ' +
-    'keyTimes="0;0.4;1" calcMode="spline" ' +
-    'repeatCount="indefinite"/></ellipse></svg>';
+    '<i class="fas fa-walking" style="color: #000; font-size:35px;"></i>';
 
     // Create an icon object, an object with geographic coordinates and a marker:
     var icon = new H.map.DomIcon(animatedSvg);
-    coords = { lat: latitud, lng: longitud },
-    //marker = new H.map.Marker(coords, {icon: icon}); 5-12-2020
 
+    coords = { lat: latitud, lng: longitud },
     marker = new H.map.DomMarker(coords, {icon: icon});
+
+
+    // Add the marker to the map:
+    map.addObject(marker);
+
+
+
+
+
+//    marker = new H.map.DomMarker(coords, {icon: icon});
 
     // Set map center and zoom, add the marker to the map: 
     //map.setZoom(18); 5-12-2020
@@ -245,7 +233,7 @@ $$(document).on('page:init', '.page[data-name="mapa"]', function (e) {
 // BURBUJA DE INFORMACION en la zona en donde esta el usuario
 // Cree un objeto de burbuja de información en una ubicación geográfica específica:
 var bubble = new H.ui.InfoBubble({ lat: latitud, lng: longitud }, {
-  content: '<em>Esta es tu zona de influencia</em>'
+  content: '<strong style="font-size:15px;color:#000">Esta es tu <em style="font-size:15px;color:#7ad091">ZONA DE INFLUENCIA</em></strong>'
 });
 // Configuracion del LENGUAJE DEL MAPA
 // Cree la interfaz de usuario predeterminada:
@@ -313,14 +301,12 @@ var bubble = new H.ui.InfoBubble({ lat: latitud, lng: longitud }, {
   }, false);
   //Comedor Comunitario Un Rayito de Esperanza
   addMarkerToGroup(group, {lat:-34.650839, lng:-58.704216},
-    '<div class="block"><p><a href="/ong/" data-view=".page-content">' +
-    '<em><strong>Comedor Comunitario Un Rayito de Esperanza</strong></em></a></p>' +
-    '</div>');
+    '<p><strong style="font-size:15px;color:#000">Comedor Rayo de Esperanza</strong></p>'+
+    '<a href="/ong/" data-view=".page-content" class="col button button-raised button-round button-outline"><em>INFLUENCE</em></a>');
   //Divino Niño Jesús
   addMarkerToGroup(group, {lat:-34.637941, lng:-58.637422},
-    '<div class="block"><p><a href="/ong/" data-view=".page-content">' +
-    '<em><strong>Divino Niño Jesús</strong></em></a></p>' +
-    '</div>');
+    '<p><strong style="font-size:15px;color:#000">Hogar Divino Niño Jesus</strong></p>'+
+    '<a href="/ong/" data-view=".page-content" class="col button button-raised button-round button-outline"><em>INFLUENCE</em></a>');
   }
   addInfoBubble(map);
 
