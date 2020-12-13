@@ -309,11 +309,11 @@ var bubble = new H.ui.InfoBubble({ lat: latitud, lng: longitud }, {
   //Comedor Comunitario Un Rayito de Esperanza
   addMarkerToGroup(group, {lat:-34.650839, lng:-58.704216},
     '<p><strong style="font-size:15px;color:#000">Comedor Rayo de Esperanza</strong></p>'+
-    '<a href="/ong/" data-view=".page-content" class="col button button-raised button-round button-outline"><em>INFLUENCE</em></a>');
+    '<a href="/ong/" data-view=".page-content" class="col button button-raised button-round button-fill"><em>INFLUENCE</em></a>');
   //Divino Niño Jesús
   addMarkerToGroup(group, {lat:-34.637941, lng:-58.637422},
     '<p><strong style="font-size:15px;color:#000">Hogar Divino Niño Jesus</strong></p>'+
-    '<a href="/ong/" data-view=".page-content" class="col button button-raised button-round button-outline"><em>INFLUENCE</em></a>');
+    '<a href="/ong/" data-view=".page-content" class="col button button-raised button-round button-fill"><em>INFLUENCE</em></a>');
   }
   addInfoBubble(map);
 

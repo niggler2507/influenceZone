@@ -1,103 +1,236 @@
 <div class="page" data-name="about">
-
-
-    <!-- Navbar -->
-    <div class="navbar navbar-large">
-        <div class="navbar-bg"></div>
-        <div class="navbar-inner">
-            <div class="left">
-                <a class="link back">
-                <i class="icon icon-back"></i>
-                <span class="if-not-md">Back</span>
-                </a>
-            </div>
-            <div class="title">Info de la App</div>
-            <div class="title-large">
-                <div class="title-large-text">Info de la App</div>
-            </div>
+    <!-- Slider con imagenes de la organización -->
+    <div data-pagination='{"el": ".swiper-pagination"}' data-space-between="10" data-slides-per-view="auto"
+    data-centered-slides="true" class="swiper-container swiper-init demo-swiper demo-swiper-auto" style="margin-bottom: 0;">
+    <div class="swiper-pagination"></div>
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img data-src="img/slider/poverty01.jpg" class="lazy"></div>
+            <div class="swiper-slide"><img data-src="img/slider/poverty02.jpg" class="lazy"></div>
+            <div class="swiper-slide"><img data-src="img/slider/poverty03.jpg" class="lazy"></div>
+            <div class="swiper-slide"><img data-src="img/slider/poverty04.jpg" class="lazy"></div>
+            <div class="swiper-slide"><img data-src="img/slider/poverty05.jpg" class="lazy"></div>
+            <div class="swiper-slide"><img data-src="img/slider/poverty06.jpg" class="lazy"></div>
+            <div class="swiper-slide"><img data-src="img/slider/poverty07.jpg" class="lazy"></div>
+            <div class="swiper-slide"><img data-src="img/slider/poverty08.jpg" class="lazy"></div>
+            <div class="swiper-slide"><img data-src="img/slider/poverty09.jpg" class="lazy"></div>
+            <div class="swiper-slide"><img data-src="img/slider/poverty10.jpg" class="lazy"></div>
+            <div class="swiper-slide"><img data-src="img/slider/poverty11.jpg" class="lazy"></div>
+            <div class="swiper-slide"><img data-src="img/slider/poverty12.jpg" class="lazy"></div>
         </div>
     </div>
-
-    
-
+    <!-- Navbar  -->
+    <div class="navbar navbar-transparent ">
+        <div class="navbar-inner sliding">
+            <div class="left">
+                <a class="link" href="/mapa/">
+                    <i class="icon icon-back"></i>
+                    <span class="if-not-md">Back</span>
+                </a>
+            </div>
+            <div class="title pacifico" style="font-size: 28px;"></div>
+        </div>
+    </div>
     <!-- Additional "tabbar-labels" class -->
-    <div class="toolbar tabbar tabbar-labels toolbar-bottom">
+    <div class="toolbar tabbar tabbar-labels toolbar-bottom" style="height: 70px;">
         <div class="toolbar-inner">
         <a href="#tab-1" class="tab-link tab-link-active">
             <!-- Different icons for iOS and MD themes -->
-            <i class="icon f7-icons if-not-md">envelope_fill</i>
-            <i class="icon material-icons md-only">email</i>
+            <img data-src="img/logoSmallWhite.png" width="33" height="33" class="lazy">
             <!-- Label text -->
-            <span class="tabbar-label">Inbox</span>
+            <span class="tabbar-label"></span>
         </a>
         <a href="#tab-2" class="tab-link tab-link-active">
-            <i class="icon f7-icons if-not-md">today_fill<span class="badge color-red">5</span></i>
-            <i class="icon material-icons md-only">today<span class="badge color-red">5</span></i>
-            <span class="tabbar-label">Calendar</span>
+            <img data-src="img/ComIT/logoComIt.png" width="55" height="80" class="lazy" style="padding-top: 10px;">
+            <span class="tabbar-label"></span>
         </a>
         <a href="#tab-3" class="tab-link tab-link-active">
-            <i class="icon f7-icons if-not-md">cloud_fill</i>
-            <i class="icon material-icons md-only">file_upload</i>
-            <span class="tabbar-label">Upload</span>
+            <i class="fas fa-code-branch" style="font-size: 22px;padding-top: 10px;"></i>
+            <span class="tabbar-label"></span>
+        </a>
+        <a href="#tab-4" class="tab-link tab-link-active">
+            <i class="fas fa-code" style="font-size: 22px;padding-top: 10px;"></i>
+            <span class="tabbar-label"></span>
         </a>
         </div>
     </div>
-    
-
-
     <div class="page-content">
-
         <!-- Tabs -->
         <div class="tabs">
-            <!-- First tab, active -->
+            <!-- Primer tab, active -->
             <div class="page-content tab tab-active" id="tab-1" style="padding-top: 10px;">
-                <div class="block-title">Welcome to Framework7 parte 111111</div>
-                <div class="block block-strong">
-                <p>Framework7 - is a free and open source HTML mobile framework to develop hybrid mobile apps or web apps with iOS or Android (Material) native look and feel. It is also an indispensable prototyping apps tool to show working app prototype as soon as possible in case you need to. Framework7 is created by Vladimir Kharlampidi (iDangero.us).</p>
-                <p>The main approach of the Framework7 is to give you an opportunity to create iOS and Android (Material) apps with HTML, CSS and JavaScript easily and clear. Framework7 is full of freedom. It doesn't limit your imagination or offer ways of any solutions somehow. Framework7 gives you freedom!</p>
-                <p>Framework7 is not compatible with all platforms. It is focused only on iOS and Android (Material) to bring the best experience and simplicity.</p>
-                <p>Framework7 is definitely for you if you decide to build iOS and Android hybrid app (Cordova or PhoneGap) or web app that looks like and feels as great native iOS or Android (Material) apps.</p>
-                <p>Framework7 - is a free and open source HTML mobile framework to develop hybrid mobile apps or web apps with iOS or Android (Material) native look and feel. It is also an indispensable prototyping apps tool to show working app prototype as soon as possible in case you need to. Framework7 is created by Vladimir Kharlampidi (iDangero.us).</p>
-                <p>The main approach of the Framework7 is to give you an opportunity to create iOS and Android (Material) apps with HTML, CSS and JavaScript easily and clear. Framework7 is full of freedom. It doesn't limit your imagination or offer ways of any solutions somehow. Framework7 gives you freedom!</p>
-                <p>Framework7 is not compatible with all platforms. It is focused only on iOS and Android (Material) to bring the best experience and simplicity.</p>
-                <p>Framework7 is definitely for you if you decide to build iOS and Android hybrid app (Cordova or PhoneGap) or web app that looks like and feels as great native iOS or Android (Material) apps.</p>
-                <p>Framework7 - is a free and open source HTML mobile framework to develop hybrid mobile apps or web apps with iOS or Android (Material) native look and feel. It is also an indispensable prototyping apps tool to show working app prototype as soon as possible in case you need to. Framework7 is created by Vladimir Kharlampidi (iDangero.us).</p>
-                <p>Framework7 is definitely for you if you decide to build iOS and Android hybrid app (Cordova or PhoneGap) or web app that looks like and feels as great native iOS or Android (Material) apps.</p>
+                <div class="title pacifico" style="font-size: 30px;padding-left: 30px;">Vision</div>
+                <img data-src="img/logo03.png" class="lazy" style="padding-left: 20px;width:370px;height:360px;">
+                <img data-src="img/logo02.png" class="lazy">
+                <div class="block block-strong" style="margin-top: 5px;">
+                    <p>Esta app intenta unir a las personas que realmente tienen necesidades, con aquellas que se sienten movidas a ayudar.</p>
+                    <p>Cerca tuyo existe alguien que necesita de vos, de tu ayuda, de lo que vos podés dar, alguien que influencie sus vidas positivamente.</p>
+                    <p>Influence Zone, te muestra según tu ubicación, una zona y en ella, las organizaciones que necesitan de tu aporte; de esta manera podrás ver fácilmente qué muy cerca tuyo existe la posibilidad de ayudar a los demás.</p>
+                    <p>Quizás no eras consciente de cuan cerca tuyo está la necesidad del prójimo, quizás siempre quisiste hacer tú aporte pero no sabías realmente cuán cerca de ti estaba la necesidad de la gente. Aunque realmente esto ya no importa, por que hoy puedes cambiar esto para siempre, descubrir que tu zona de influencia… vos podes afectar positivamente a los demás!!!.</p>
+                    <p>Prueba Influence Zone y aporta tu granito de arena ayudando a las organizaciones que se dedican a suplir las necesidades de los más necesitados.</p>
+                    <p>Comienza a impactar a tu región, a tu barrio, a tu ciudad, a las personas más necesitadas con Influence Zone.</p>
+                    <p>En la sección “Mapa”, de esta App vas a poder ver tu ubicación, y todas las Organizaciones que están cerca tuyo y están trabajando en el dia a dia por los màs desprotegidos, como son los Comedores, Merenderos, Organizaciones sin fines de lucro, Hogares, Fundaciones, Refugios, Servicios Comunitarios, Huertas, Agrupaciones, Centros Vecinales, todos sitios que ayudan a la comunidad en tu región.</p>
+                    <p>Podrás visualizar rápidamente, a cada una de las Organizaciones en el mapa por medio de un marcador en el mapa. </p>
+                    <p>También contamos con un botón de búsqueda de Organizaciones, en caso que conozca el nombre de alguna de ellas.</p>
+                    <p>Al detectar y elegir la institución, puedes presionar en el marcador y aparecerá una burbuja con el nombre de la Ong, y un botón, llamado “Influence”, él mismo te dirigirá al perfil de la Ong, y allí podrás ponerte en contacto por medio de todas las vías de comunicación que ellos ofrezcan, cómo su Email, Teléfono, Messenger, Whatsapp, o Web Institucional.</p>
+                    <p>Al tener la posibilidad de contactarlos, podrás gestionar si deseas una donación o podrás ponerte en contacto para ofrecerles alimentos, ropa, artículos de limpieza, artículos no perecederos; o mejor aún, quizás también puedas ofrecerte como voluntario y ofrecer un poco de tu tiempo para ayudar en las Organizaciones que tienen presencia en la app y están muy cerca de tu ubicación.</p>
+                    <p>Con esto logramos que las Organizaciones sean más visibles para la comunidad, y la Comunidad se pueda involucrar más en la acción social que las primeras ejercen todos los días.</p>
+                    <p>Tu Donación o Voluntariado puede ayudar a cambiar el día a día de una persona. No pierdas tiempo, usa Influence Zone y cambia la vida de las personas que te rodean.</p>
+                    <br><br>
                 </div>
             </div>
-            <!-- Second tab -->
-            <div class="page-content tab" id="tab-2" style="padding-top: 10px;">
-                <div class="block-title">Welcome to Framework7 parte 222</div>
+            <!-- Segundo tab -->
+                <div class="page-content tab" id="tab-2" style="padding-top: 10px;">
+                    <div class="title pacifico" style="font-size: 30px;padding-left: 30px;">Origen</div>
+                    <img data-src="img/ComIT/logoAzul.png" width="380" height="30" class="lazy" style="padding-left: 15px;">
                 <div class="block block-strong">
-                <p>Framework7 - is a free and open source HTML mobile framework to develop hybrid mobile apps or web apps with iOS or Android (Material) native look and feel. It is also an indispensable prototyping apps tool to show working app prototype as soon as possible in case you need to. Framework7 is created by Vladimir Kharlampidi (iDangero.us).</p>
-                <p>The main approach of the Framework7 is to give you an opportunity to create iOS and Android (Material) apps with HTML, CSS and JavaScript easily and clear. Framework7 is full of freedom. It doesn't limit your imagination or offer ways of any solutions somehow. Framework7 gives you freedom!</p>
-                <p>Framework7 is not compatible with all platforms. It is focused only on iOS and Android (Material) to bring the best experience and simplicity.</p>
-                <p>Framework7 is definitely for you if you decide to build iOS and Android hybrid app (Cordova or PhoneGap) or web app that looks like and feels as great native iOS or Android (Material) apps.</p>
+                    <p>La idea de esta App surge primero como proyecto final del Curso de Desarrollo Mobile de Comunidad IT.</p>
+                    <p>Comunidad IT es una organización sin fines de lucro que tiene como objetivo desarrollar una comunidad que vincula personas con dificultades en la obtención de empleo con empresas que buscan profesionales de IT.</p>
+                    <div class="card demo-card-header-pic">
+                        <div style="background-image:url(img/ComIT/comitegre.jpg)" class="card-header align-items-flex-end pacifico" style="font-size: 15px;padding-left: 15px;">ComIT</div>
+                        <div class="card-content card-content-padding">
+                        <p class="date">Asociación Civil Comunidad IT</p>
+                        <p>Nuestro trabajo se centra en la brecha de oferta y demanda existente en el mercado IT, enfocándonos en las herramientas y los lenguajes de programación requeridos por las empresas locales, así como en las habilidades blandas y las capacidades de desarrollo profesional también muy necesarias.
+                            <br>
+                            Nuestros programas son planificados, desarrollados y ejecutados por profesionales activos en la industria y voluntarios que trabajan en empresas líderes.
+                            <br>
+                            Creemos que la mejor manera de ayudar a la gente a superar las barreras laborales es hacerlo en conjunto, como una comunidad, para poder proporcionarles herramientas que les sirvan para poder trabajar teniendo en cuenta las necesidades locales del mercado laboral.</p>
+                        </div>
+                    <div class="col" style="margin-left: 10px;">
+                        <div class="chip">
+                            <div class="chip-media"><img src="img/ComIT/soledadacuna.jpg" /></div>
+                            <div class="chip-label">Maria Soledad Acuña (Fundadora y Directora)</div>
+                        </div>
+                        <div class="chip">
+                            <div class="chip-media"><img src="img/ComIT/jorge.jpg" /></div>
+                            <div class="chip-label">Jorge Montenegro (Profesor Desarrollo Mobile)</div>
+                        </div>
+                        <br><br>
+                    </div>
+                    </div>
+                    <div class="block">
+                        <div class="row">
+                            <div class="col pacifico">
+                                <div class="col-33" style="margin-bottom: 10px;">
+                                    <a href="https://www.comunidadit.org/" class="link external col button button-raised button-round button-outline" target="_blank">
+                                        Web
+                                    </a>
+                                </div>
+                                <div class="col-33" style="margin-bottom: 10px;">
+                                    <a href="https://www.facebook.com/ComunidadITorg/" class="link external col button button-raised button-round button-outline" target="_blank">
+                                        Facebook
+                                    </a>
+                                </div>
+                                <div class="col-33" style="margin-bottom: 10px;">
+                                    <a href="https://twitter.com/ComunidadITorg" class="link external col button button-raised button-round button-outline" target="_blank">
+                                        Twitter
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col pacifico">
+                                <div class="col-33" style="margin-bottom: 10px;">
+                                    <a href="https://www.linkedin.com/company/comunidad-it/" class="link external icon-only col button button-raised button-round button-outline" target="_blank">
+                                        Linkedin
+                                    </a>
+                                </div>
+                                <div class="col-33" style="margin-bottom: 10px;">
+                                    <a href="https://www.instagram.com/comunidadit/?hl=en" class="link external icon-only col button button-raised button-round button-outline" target="_blank">
+                                        Instagram
+                                    </a>
+                                </div>
+                                <div class="col-33" style="margin-bottom: 10px;">
+                                    <a href="https://www.youtube.com/channel/UCysWIoAXa2M8nHpy5uliHsQ" class="link external icon-only col button button-raised button-round button-outline" target="_blank">
+                                        Youtube
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <br><br>
+                    </div>
                 </div>
             </div>
-            <!-- Third tab -->
-            <div class="page-content tab" id="tab-3" style="padding-top: 10px;">
-                <div class="block-title">Welcome to Framework7 parte 333333333333</div>
+            <!-- Tercer tab -->
+                <div class="page-content tab" id="tab-3" style="padding-top: 10px;">
+                    <div class="title pacifico" style="font-size: 30px;padding-left: 30px;">Versión</div>
+                    <img data-src="img/logo02.png" width="380" height="50" class="lazy" style="padding-left: 20px;">
                 <div class="block block-strong">
-                <p>Framework7 - is a free and open source HTML mobile framework to develop hybrid mobile apps or web apps with iOS or Android (Material) native look and feel. It is also an indispensable prototyping apps tool to show working app prototype as soon as possible in case you need to. Framework7 is created by Vladimir Kharlampidi (iDangero.us).</p>
-                <p>The main approach of the Framework7 is to give you an opportunity to create iOS and Android (Material) apps with HTML, CSS and JavaScript easily and clear. Framework7 is full of freedom. It doesn't limit your imagination or offer ways of any solutions somehow. Framework7 gives you freedom!</p>
-                <p>Framework7 is not compatible with all platforms. It is focused only on iOS and Android (Material) to bring the best experience and simplicity.</p>
-                <p>Framework7 is definitely for you if you decide to build iOS and Android hybrid app (Cordova or PhoneGap) or web app that looks like and feels as great native iOS or Android (Material) apps.</p>
-                <p>Framework7 - is a free and open source HTML mobile framework to develop hybrid mobile apps or web apps with iOS or Android (Material) native look and feel. It is also an indispensable prototyping apps tool to show working app prototype as soon as possible in case you need to. Framework7 is created by Vladimir Kharlampidi (iDangero.us).</p>
-                <p>The main approach of the Framework7 is to give you an opportunity to create iOS and Android (Material) apps with HTML, CSS and JavaScript easily and clear. Framework7 is full of freedom. It doesn't limit your imagination or offer ways of any solutions somehow. Framework7 gives you freedom!</p>
-                <p>Framework7 is not compatible with all platforms. It is focused only on iOS and Android (Material) to bring the best experience and simplicity.</p>
-                <p>Framework7 is definitely for you if you decide to build iOS and Android hybrid app (Cordova or PhoneGap) or web app that looks like and feels as great native iOS or Android (Material) apps.</p>
-                <p>Framework7 - is a free and open source HTML mobile framework to develop hybrid mobile apps or web apps with iOS or Android (Material) native look and feel. It is also an indispensable prototyping apps tool to show working app prototype as soon as possible in case you need to. Framework7 is created by Vladimir Kharlampidi (iDangero.us).</p>
-                <p>The main approach of the Framework7 is to give you an opportunity to create iOS and Android (Material) apps with HTML, CSS and JavaScript easily and clear. Framework7 is full of freedom. It doesn't limit your imagination or offer ways of any solutions somehow. Framework7 gives you freedom!</p>
-                <p>Framework7 is not compatible with all platforms. It is focused only on iOS and Android (Material) to bring the best experience and simplicity.</p>
-                <p>Framework7 is definitely for you if you decide to build iOS and Android hybrid app (Cordova or PhoneGap) or web app that looks like and feels as great native iOS or Android (Material) apps.</p>
-                <p>Framework7 - is a free and open source HTML mobile framework to develop hybrid mobile apps or web apps with iOS or Android (Material) native look and feel. It is also an indispensable prototyping apps tool to show working app prototype as soon as possible in case you need to. Framework7 is created by Vladimir Kharlampidi (iDangero.us).</p>
-                <p>The main approach of the Framework7 is to give you an opportunity to create iOS and Android (Material) apps with HTML, CSS and JavaScript easily and clear. Framework7 is full of freedom. It doesn't limit your imagination or offer ways of any solutions somehow. Framework7 gives you freedom!</p>
-                <p>Framework7 is not compatible with all platforms. It is focused only on iOS and Android (Material) to bring the best experience and simplicity.</p>
-                <p>Framework7 is definitely for you if you decide to build iOS and Android hybrid app (Cordova or PhoneGap) or web app that looks like and feels as great native iOS or Android (Material) apps.</p>
+                <!-- Each next item will on different side -->
+                <div class="block-title">Cronologia de las futuras versiones</div>
+                    <div class="timeline timeline-sides">
+                        <div class="timeline-item">
+                            <div class="timeline-item-date">14 <small>DEC</small></div>
+                            <div class="timeline-item-divider"></div>
+                            <div class="timeline-item-content">
+                                <div class="timeline-item-inner">Presentación de la version (Alfa)</div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-item-date">14 <small>ENE</small></div>
+                            <div class="timeline-item-divider"></div>
+                            <div class="timeline-item-content">
+                                <div class="timeline-item-inner">Version Beta</div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-item-date">14 <small>MAR</small></div>
+                            <div class="timeline-item-divider"></div>
+                            <div class="timeline-item-content">
+                                <div class="timeline-item-inner">Versión candidata a definitiva (RC)</div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-item-date">14 <small>MAY</small></div>
+                            <div class="timeline-item-divider"></div>
+                            <div class="timeline-item-content">
+                                <div class="timeline-item-inner">Versión de disponibilidad general (RTM)</div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-item-date">14 <small>JUL</small></div>
+                            <div class="timeline-item-divider"></div>
+                            <div class="timeline-item-content">
+                                <div class="timeline-item-inner">Publicación en la Play Store de Google</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                <br><br>
+            </div>
+            <!-- Cuarto tab -->
+            <div class="page-content tab" id="tab-4" style="padding-top: 10px;">
+                <div class="title pacifico" style="font-size: 30px;padding-left: 30px;">Contacto</div>
+                <img data-src="img/logoSmallGreen.png" width="380" height="50" class="lazy" style="padding-left: 20px;">
+                <div class="card demo-card-header-pic">
+                    <div style="background-image:url(img/developer.jpeg)" class="card-header align-items-flex-end pacifico"></div>
+                    <div class="card-content card-content-padding">
+                        <h3>Ezequiel Andres Barrera</h3>
+                        <p>Developer Front-end | Mobile, apasionado por el desarrollo Frontend y Mobile Hibridas</p>
+                        <p>Estudio en la Universidad Nacional de Hurlingham, la Licenciatura en Informatica.</p>
+                        <p>Egresado de ComunidadIT, en curso profesional intensivo en Desarrollo Mobile</p>
+                        <p>En constante capacitación. En la búsqueda de dar mis primeros pasos en una empresa donde pueda seguir creciendo y desarrollándome profesionalmente.</p>
+                        <br>
+                    </div>
+                    <div class="col" style="margin-left: 10px;">
+                        <div class="chip">
+                            <div class="chip-media"><img src="img/developer.jpeg" /></div>
+                            <div class="chip-label">Ezequiel Andres Barrera (developer)</div>
+                        </div>
+                        <br><br>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-50" style="margin-bottom: 10px;">
+                        <a href="https://www.linkedin.com/in/ezequiel-javascript/" class="link external col button button-raised button-round button-outline" target="_blank">
+                            Linkedin
+                        </a>
+                    </div>
+                    <div class="col-50" style="margin-bottom: 10px;">
+                        <a href="https://github.com/niggler2507/influenceZone" class="link external col button button-raised button-round button-outline" target="_blank">
+                            GitHub
+                        </a>
+                    </div>
+                </div>
+                <br><br><br><br>
             </div>
         </div>
-
     </div>
 </div>

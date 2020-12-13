@@ -1,44 +1,32 @@
-<!-- We don't need a full layout in this file because this page will be parsed with Ajax.  -->
-<div class="page" data-name="mapa">
-    <div class="page-content" style="padding-top: 0px;">
+<div class="page bg-color-primary" data-name="mapa">
+    <div class="page-content">
         <!-- Logo de la App -->
-        <img data-src="img/logo01.png" width="300" height="45" style="margin-top: 5px; margin-left: 20px;" class="lazy lazy-fade-in demo-lazy">
+        <img data-src="img/logoWhite01.png" width="300" height="45" class="lazy" style="padding-left: 15px">
+        <!-- Parte superior derecho de FAB -->
         <!-- FAB Backdrop -->
         <div class="fab-backdrop"></div>
-        <!-- Parte superior derecha extendida de FAB -->
-        <div class="fab fab-extended fab-right-top color-primary">
-            <a href="#">
-                <i class="f7-icons">bars</i>
+        <div class="fab fab-right-top color-primary">
+            <a href="/buscador/">
+                <i class="fas fa-search-location" style="font-size: 30px;"></i>
             </a>
-            <div class="fab-buttons fab-buttons-bottom">                                                
-                <a class="fab-label-button link panel-close" href="/perfil/">
-                    <span><i class="fas fa-user"></i></span>
-                    <span class="fab-label">Pefil</span>
-                </a>
-                <a class="fab-label-button link panel-close" href="/info/">
-                    <span><i class="fas fa-info-circle"></i></span>
-                    <span class="fab-label">Info</span>
-                </a>
-                <a class="fab-label-button link panel-close" href="#">
-                    <span><i class="fas fa-arrow-circle-left"></i></span>
-                    <span class="fab-label">Volver</span>
-                </a>
-                <a class="fab-label-button link panel-close" href="/index/">
-                    <span><i class="fas fa-times-circle"></i></span>
-                    <span class="fab-label">Cerrar</span>
-                </a>
+        </div>
+        
+        <!-- Mapa -->
+        <div style="width: 100%; height: 75vh; margin: 0 !important; padding: 0 !important;" id="mapContainer"></div>
+        
+        <!-- Additional "tabbar-labels" class -->
+        <div class="toolbar toolbar-bottom" style="height: 50px;">
+            <div class="toolbar-inner">
+            <a href="/perfil/" class="tab-link tab-link-active">
+                <span class="tabbar-label pacifico" style="font-size: 25px;margin-left: 15px;">Perfil</span>
+            </a>
+            <a href="/info/" class="tab-link tab-link-active">
+                <span class="tabbar-label pacifico" style="font-size: 25px;">Info</span>
+            </a>
+            <a href="/index/" class="tab-link tab-link-active">
+                <span class="tabbar-label pacifico" style="font-size: 25px;margin-right: 15px;">Cerrar</span>
+            </a>
             </div>
         </div>
-        <!-- Parte inferior izquierda de FAB -->
-        <!-- FAB Backdrop -->
-        <div class="fab-backdrop"></div>
-        <div class="fab fab-extended fab-left-bottom color-primary">
-            <a href="/buscador/">
-                <i class="fas fa-search-location"></i>
-                <div class="fab-text">Buscar Ong</div>
-            </a>
-        </div>
-        <!-- Mapa -->
-        <div style="width: 100%; height: 87vh; margin: 0 !important; padding: 0 !important;" id="mapContainer"></div>
     </div>
 </div>
