@@ -1,32 +1,39 @@
 <div class="page bg-color-primary" data-name="mapa">
+
     <div class="page-content">
+
         <!-- Logo de la App -->
-        <img data-src="img/logoWhite01.png" width="300" height="45" class="lazy" style="padding-left: 15px">
-        <!-- Parte superior derecho de FAB -->
-        <!-- FAB Backdrop -->
+        <img data-src="img/logoWhite01.png" width="300" height="45" class="lazy" style="padding-left: 50px">
+
+        <!-- FAB Boton de Busqueda -->
         <div class="fab-backdrop"></div>
-        <div class="fab fab-right-top color-primary">
+        <div class="fab fab-extended fab-left-bottom color-yellow">
             <a href="/buscador/">
                 <i class="fas fa-search-location" style="font-size: 30px;"></i>
+                <div class="fab-text">Buscar</div>
             </a>
         </div>
-        
+
+        <!-- FAB Boton para Cerrar Sessión -->
+        <div class="fab-backdrop"></div>
+        <div class="fab fab-extended fab-center-bottom color-red">
+            <a href="/index/">
+                <i class="fas fa-times"></i>
+                <div class="fab-text">Salir</div>
+            </a>
+        </div>
+
+        <!-- FAB Boton de Info de la App-->
+        <div class="fab-backdrop"></div>
+        <div class="fab fab-extended fab-right-bottom color-blue">
+            <a href="/info/" style="margin-right:25px;">
+                <i class="fas fa-info"></i>
+                <div class="fab-text">Info</div>
+            </a>
+        </div>
+
         <!-- Mapa -->
         <div style="width: 100%; height: 75vh; margin: 0 !important; padding: 0 !important;" id="mapContainer"></div>
-        
-        <!-- Additional "tabbar-labels" class -->
-        <div class="toolbar toolbar-bottom" style="height: 50px;">
-            <div class="toolbar-inner">
-            <a href="/perfil/" class="tab-link tab-link-active">
-                <span class="tabbar-label pacifico" style="font-size: 25px;margin-left: 15px;">Perfil</span>
-            </a>
-            <a href="/info/" class="tab-link tab-link-active">
-                <span class="tabbar-label pacifico" style="font-size: 25px;">Info</span>
-            </a>
-            <a href="/index/" class="tab-link tab-link-active">
-                <span class="tabbar-label pacifico" style="font-size: 25px;margin-right: 15px;">Cerrar</span>
-            </a>
-            </div>
-        </div>
+
     </div>
 </div>

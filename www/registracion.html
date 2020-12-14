@@ -1,220 +1,238 @@
-<!-- We don't need a full layout in this file because this page will be parsed with Ajax.  -->
 <div class="page" data-name="registracion">
 
     <!-- Navbar -->
     <div class="navbar">
         <div class="navbar-bg"></div>
         <div class="navbar-inner sliding">
-        <div class="left">
-            <a class="link back">
-            <i class="icon icon-back"></i>
-            <span class="if-not-md">Back</span>
-            </a>
-        </div>
-        <div class="title pacifico" style="font-size: 28px;">Registro</div>
-        </div>
-    </div>
-
-<!-- Scrollable page content -->
-<div class="page-content">
-
-    <!-- Primera Card para el registro de USUARIOS -->
-    <div class="card card-expandable hide-navbar-on-scroll">
-        <div class="card-content">
-            <div class="bg-color-white" style="height: 300px">
-                <div class="card-header text-color-primary display-block">
-                    <strong>Usuario</strong><br>
-                    <small style="opacity: 0.7">para <em>hacer</em> Donaciones</small>
-                </div>
-                <a href="#" class="link card-close card-opened-fade-in color-primary" style="position: absolute; right: 15px; top: 15px">
-                    <i class="icon f7-icons">xmark_circle_fill</i>
+            <div class="left">
+                <a class="link back">
+                    <i class="icon icon-back"></i>
+                    <span class="if-not-md">Back</span>
                 </a>
-                <div class="block">
-                    <p class="text-color-primary">
-                        <em>Podras hacer Donaciones o ofrecerte como Voluntario</em>
-                    </p>
-                </div>
             </div>
-            <div class="card-content-padding">
-                <form class="list" id="my-form-user">
-                    <ul>
-                        <li>
-                            <div class="item-content item-input">
-                                <div class="item-inner">
-                                    <div class="item-title item-label">Email</div>
-                                    <div class="item-input-wrap">
-                                        <input type="email" id="regEmail" name="regEmail" placeholder="Ingresa tu Email" required validate>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="item-content item-input">
-                                <div class="item-inner">
-                                    <div class="item-title item-label">Contraseña</div>
-                                    <div class="item-input-wrap">
-                                        <input type="password" id="regPass" name="regPass" placeholder="Ingresa tu Contraseña" required validate>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="item-content item-input">
-                                <div class="item-inner">
-                                    <div class="item-title item-label">Nombre</div>
-                                    <div class="item-input-wrap">
-                                        <input type="text" id="regNombre" name="regNombre" placeholder="Ingresa tu Nombre" required validate>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="item-content item-input">
-                                <div class="item-inner">
-                                    <div class="item-title item-label">Apellido</div>
-                                    <div class="item-input-wrap">
-                                        <input type="text" id="regApellido" name="regApellido" placeholder="Ingresa tu Apellido" required validate>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="item-content item-input">
-                                <div class="item-inner">
-                                    <div class="item-title item-label">Telefono</div>
-                                    <div class="item-input-wrap">
-                                        <input type="text" pattern="[0-9]*" id="regTel" data-error-message="Solo numeros porfavor!" name="regTel" placeholder="Ingresa tu Telefono" required validate>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="item-content item-input">
-                                <div class="item-inner">
-                                    <div class="item-title item-label">Pais</div>
-                                    <div class="item-input-wrap">
-                                        <input type="text" id="regPais" name="regPais" placeholder="Ingresa tu Pais" required validate>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="item-content item-input">
-                                <div class="item-inner">
-                                    <div class="item-title item-label">Provincia</div>
-                                    <div class="item-input-wrap">
-                                        <input type="text" id="regProvincia" name="regProvincia" placeholder="Ingresa tu Provincia" required validate>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="item-content item-input">
-                                <div class="item-inner">
-                                    <div class="item-title item-label">Ciudad</div>
-                                    <div class="item-input-wrap">
-                                        <input type="text" id="regCiudad" name="regCiudad" placeholder="Ingresa tu Ciudad" required validate>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="item-content item-input">
-                                <div class="item-inner">
-                                    <div class="item-title item-label">Dirección</div>
-                                    <div class="item-input-wrap">
-                                        <input type="text" id="regDirec" name="regDirec" placeholder="Ingresa tu Dirección" required validate>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </form>
-                <div class="block block-strong row">
-                    <div class="col"><a class="button" id="btnReg"><em>REGISTRARSE</em></a></div>
-                </div>
-            </div>
+            <div class="title pacifico" style="font-size: 28px;">Registro</div>
         </div>
     </div>
 
-    <!-- Segunda Card para el registro de ONG -->
-    <div class="card card-expandable hide-navbar-on-scroll">
-        <div class="card-content">
-            <div class="bg-color-primary" style="height: 300px">
-                <div class="card-header text-color-white display-block">
-                    <strong>ONG</strong><br>
-                    <small style="opacity: 0.7">para <em>hacer</em> Donaciones</small>
+    <!-- Scrollable page content -->
+    <div class="page-content">
+
+        <!-- Primera Card para el registro de USUARIOS -->
+        <div class="card card-expandable hide-navbar-on-scroll">
+            <div class="card-content">
+                <div class="bg-color-white" style="height: 300px">
+                    <div class="card-header text-color-primary display-block">
+                        <strong>Usuario</strong><br>
+                        <small style="opacity: 0.7">para <em>hacer</em> Donaciones</small>
+                    </div>
+                    <a href="#" class="link card-close card-opened-fade-in color-primary"
+                        style="position: absolute; right: 15px; top: 15px">
+                        <i class="icon f7-icons">xmark_circle_fill</i>
+                    </a>
+                    <div class="block">
+                        <p class="text-color-primary">
+                            <em>Podras hacer Donaciones o ofrecerte como Voluntario</em>
+                        </p>
+                    </div>
                 </div>
-                <a href="#" class="link card-close card-opened-fade-in color-white" style="position: absolute; right: 15px; top: 15px">
-                    <i class="icon f7-icons">xmark_circle_fill</i>
-                </a>
-                <div class="block">
-                    <p class="text-color-white">
-                        <em>Desde aqui podes registrar ONG para que sean visibles en esta app Inluence Zone</em>
-                    </p>
-                </div>
-            </div>
-            <div class="card-content-padding">
-                <form class="list" id="my-form-ong">
-                    <ul>
-                        <li>
-                            <div class="item-content item-input">
-                                <div class="item-inner">
-                                    <div class="item-title item-label">Nombre de la ONG</div>
-                                    <div class="item-input-wrap">
-                                        <input type="text" id="regNombreOng" name="regNombreOng" placeholder="Ingresa el Nombre de la ONG" required validate>
+                <div class="card-content-padding">
+                    <form class="list" id="my-form-user">
+                        <ul>
+                            <li>
+                                <div class="item-content item-input">
+                                    <div class="item-inner">
+                                        <div class="item-title item-label">Email</div>
+                                        <div class="item-input-wrap">
+                                            <input type="email" id="regEmail" name="regEmail"
+                                                placeholder="Ingresa tu Email" required validate>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="item-content item-input">
-                                <div class="item-inner">
-                                    <div class="item-title item-label">Contacto en la ONG</div>
-                                    <div class="item-input-wrap">
-                                        <input type="text" id="regContactoOng" name="regContcatoOng" placeholder="Ingresa nombre de un Contacto" required validate>
+                            </li>
+                            <li>
+                                <div class="item-content item-input">
+                                    <div class="item-inner">
+                                        <div class="item-title item-label">Contraseña</div>
+                                        <div class="item-input-wrap">
+                                            <input type="password" id="regPass" name="regPass"
+                                                placeholder="Ingresa tu Contraseña" required validate>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="item-content item-input">
-                                <div class="item-inner">
-                                    <div class="item-title item-label">Email</div>
-                                    <div class="item-input-wrap">
-                                        <input type="email" id="regEmailOng" name="regEmailOng" placeholder="Ingresa Email de la ONG" required validate>
+                            </li>
+                            <li>
+                                <div class="item-content item-input">
+                                    <div class="item-inner">
+                                        <div class="item-title item-label">Nombre</div>
+                                        <div class="item-input-wrap">
+                                            <input type="text" id="regNombre" name="regNombre"
+                                                placeholder="Ingresa tu Nombre" required validate>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="item-content item-input">
-                                <div class="item-inner">
-                                    <div class="item-title item-label">Telefono</div>
-                                    <div class="item-input-wrap">
-                                        <input type="text" pattern="[0-9]*" id="regTelOng" data-error-message="Solo numeros porfavor!" name="regTelOng" placeholder="Ingresa Telefono de la ONG" required validate>
+                            </li>
+                            <li>
+                                <div class="item-content item-input">
+                                    <div class="item-inner">
+                                        <div class="item-title item-label">Apellido</div>
+                                        <div class="item-input-wrap">
+                                            <input type="text" id="regApellido" name="regApellido"
+                                                placeholder="Ingresa tu Apellido" required validate>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="item-content item-input">
-                                <div class="item-inner">
-                                    <div class="item-title item-label">Dirección</div>
-                                    <div class="item-input-wrap">
-                                        <input type="text" id="regDirecOng" name="regDirecOng" placeholder="Ingresa la Dirección, Calle, Numero, Ciudad, Provincia" required validate>
+                            </li>
+                            <li>
+                                <div class="item-content item-input">
+                                    <div class="item-inner">
+                                        <div class="item-title item-label">Telefono</div>
+                                        <div class="item-input-wrap">
+                                            <input type="text" pattern="[0-9]*" id="regTel"
+                                                data-error-message="Solo numeros porfavor!" name="regTel"
+                                                placeholder="Ingresa tu Telefono" required validate>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </li>
-                    </ul>
-                </form>
-                <div class="block block-strong row">
-                    <div class="col"><a class="button" id="btnRegOng"><em>REGISTRAR ONG</em></a></div>
+                            </li>
+                            <li>
+                                <div class="item-content item-input">
+                                    <div class="item-inner">
+                                        <div class="item-title item-label">Pais</div>
+                                        <div class="item-input-wrap">
+                                            <input type="text" id="regPais" name="regPais" placeholder="Ingresa tu Pais"
+                                                required validate>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-content item-input">
+                                    <div class="item-inner">
+                                        <div class="item-title item-label">Provincia</div>
+                                        <div class="item-input-wrap">
+                                            <input type="text" id="regProvincia" name="regProvincia"
+                                                placeholder="Ingresa tu Provincia" required validate>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-content item-input">
+                                    <div class="item-inner">
+                                        <div class="item-title item-label">Ciudad</div>
+                                        <div class="item-input-wrap">
+                                            <input type="text" id="regCiudad" name="regCiudad"
+                                                placeholder="Ingresa tu Ciudad" required validate>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-content item-input">
+                                    <div class="item-inner">
+                                        <div class="item-title item-label">Dirección</div>
+                                        <div class="item-input-wrap">
+                                            <input type="text" id="regDirec" name="regDirec"
+                                                placeholder="Ingresa tu Dirección" required validate>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </form>
+                    <div class="block block-strong row">
+                        <div class="col"><a class="button" id="btnReg"><em>REGISTRARSE</em></a></div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-</div>
+        <!-- Segunda Card para el registro de ONG -->
+        <div class="card card-expandable hide-navbar-on-scroll">
+            <div class="card-content">
+                <div class="bg-color-primary" style="height: 300px">
+                    <div class="card-header text-color-white display-block">
+                        <strong>ONG</strong><br>
+                        <small style="opacity: 0.7">para <em>hacer</em> Donaciones</small>
+                    </div>
+                    <a href="#" class="link card-close card-opened-fade-in color-white"
+                        style="position: absolute; right: 15px; top: 15px">
+                        <i class="icon f7-icons">xmark_circle_fill</i>
+                    </a>
+                    <div class="block">
+                        <p class="text-color-white">
+                            <em>Desde aqui podes registrar ONG para que sean visibles en esta app Inluence Zone</em>
+                        </p>
+                    </div>
+                </div>
+                <div class="card-content-padding">
+                    <form class="list" id="my-form-ong">
+                        <ul>
+                            <li>
+                                <div class="item-content item-input">
+                                    <div class="item-inner">
+                                        <div class="item-title item-label">Nombre de la ONG</div>
+                                        <div class="item-input-wrap">
+                                            <input type="text" id="regNombreOng" name="regNombreOng"
+                                                placeholder="Ingresa el Nombre de la ONG" required validate>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-content item-input">
+                                    <div class="item-inner">
+                                        <div class="item-title item-label">Contacto en la ONG</div>
+                                        <div class="item-input-wrap">
+                                            <input type="text" id="regContactoOng" name="regContcatoOng"
+                                                placeholder="Ingresa nombre de un Contacto" required validate>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-content item-input">
+                                    <div class="item-inner">
+                                        <div class="item-title item-label">Email</div>
+                                        <div class="item-input-wrap">
+                                            <input type="email" id="regEmailOng" name="regEmailOng"
+                                                placeholder="Ingresa Email de la ONG" required validate>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-content item-input">
+                                    <div class="item-inner">
+                                        <div class="item-title item-label">Telefono</div>
+                                        <div class="item-input-wrap">
+                                            <input type="text" pattern="[0-9]*" id="regTelOng"
+                                                data-error-message="Solo numeros porfavor!" name="regTelOng"
+                                                placeholder="Ingresa Telefono de la ONG" required validate>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-content item-input">
+                                    <div class="item-inner">
+                                        <div class="item-title item-label">Dirección</div>
+                                        <div class="item-input-wrap">
+                                            <input type="text" id="regDirecOng" name="regDirecOng"
+                                                placeholder="Ingresa la Dirección, Calle, Numero, Ciudad, Provincia"
+                                                required validate>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </form>
+                    <div class="block block-strong row">
+                        <div class="col"><a class="button" id="btnRegOng"><em>REGISTRAR ONG</em></a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
 </div>
