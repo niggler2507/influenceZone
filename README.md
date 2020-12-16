@@ -9,11 +9,11 @@ Estas son algunas de las tecnologias involucradas en este proyecto, que se encue
 
 HTML5 - CSS3 - Bootstrap - Javascript - JQuery - JSON - Apache Cordova - Framework7 - Scrum - Kanban (metodologías ágiles) - Trello - Firebase - Cloud Firestore - HereMaps.
 
-## Que es [HereMaps](https://www.here.com/)
+## Qué es [HereMaps](https://www.here.com/)
 
 HERE Technologies es una Compañía multinacional que desarrolla el servicio de mapas y geolocalización del mismo nombre. Fundada en 1985, HERE Technologies es una compañía con más de 9.000 empleados en 54 países. La compañía es la mayor empresa de geolocalización a nivel global.
 
-## Que es [Firebase](https://firebase.google.com/)
+## Qué es [Firebase](https://firebase.google.com/)
 
 Firebase es una plataforma para el desarrollo de aplicaciones web y aplicaciones móviles desarrollada por Google en 2014.
 
@@ -22,11 +22,11 @@ Firebase es una plataforma para el desarrollo de aplicaciones web y aplicaciones
 Es un framework CSS con una librería propia de manejo del DOM, similar a JQuery.
 El resultado de las aplicaciones respeta los estilos de iOS/Android como si fueran nativas.
 
-## [Apache Cordova](https://cordova.apache.org/)
+## Qué es [Apache Cordova](https://cordova.apache.org/)
 
 Nos permite el desarrollo de aplicaciones híbridas. Y de esta manera con un solo código poner tener aplicaciones para Android e iOS.
 
-## Cómo descargo el template?
+## Cómo descargo el template?(https://github.com/JorgePHI/f7-v5711)
 
 Crea y/o ingresa a tu carpeta inicial del desarrollo. Descarga el template con el comando:
 
