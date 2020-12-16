@@ -26,7 +26,7 @@ El resultado de las aplicaciones respeta los estilos de iOS/Android como si fuer
 
 Nos permite el desarrollo de aplicaciones híbridas. Y de esta manera con un solo código poner tener aplicaciones para Android e iOS.
 
-## Cómo descargo el template?(https://github.com/JorgePHI/f7-v5711)
+## Cómo descargo el [template]?(https://github.com/JorgePHI/f7-v5711)
 
 Crea y/o ingresa a tu carpeta inicial del desarrollo. Descarga el template con el comando:
 
